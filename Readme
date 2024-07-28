@@ -1,0 +1,34 @@
+Steps to Set Up and Test the Contact Form
+
+Step 1: Set Up Your Local Web Server
+
+-> Download and Install XAMPP/WAMP/MAMP:
+XAMPP: Download XAMPP
+
+-> Start the Web Server:
+XAMPP: Open XAMPP Control Panel and start the Apache server.
+
+-> Place Your HTML File in the Server Directory:
+XAMPP: Copy Contact.html to the htdocs directory (e.g., C:\xampp\htdocs\your-project).
+
+
+Step 2: First Test - Activating the Form
+-> Open the Contact Page:
+Open your web browser and navigate to http://localhost/your-project (replace your-project with the appropriate directory name).
+
+-> Submit Test Values:
+Fill out the form with test values and click "Send Message".
+
+-> Activate the Form:
+Check the inbox of the target email address (dementor.help@gmail.com) for an activation email from FormSubmit.
+Follow the instructions in the email to activate the form.
+
+Step 3: Second Test - Verifying Email Delivery
+-> Submit Dummy Values:
+After activating the form, go back to the contact page.
+Enter dummy values in the form and click "Send Message".
+
+-> Check Email Delivery:
+Check the inbox of the target email address (dementor.help@gmail.com) to verify that the form submission details have been received.
+
+For more reference, you can watch this video tutorial: https://youtu.be/iSobU_DjNN4?si=GXnZuIdxctLvygKs
