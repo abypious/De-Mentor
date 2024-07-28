@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+        .contact-container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        .contact-info h2 {
+            margin-top: 0;
+        }
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .contact-info i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        .contact-form h2 {
+            margin-top: 0;
+        }
+        .contact-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+            display: block;
+            margin: 10px auto 0;
+        }
+        .contact-form button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>Contact</h2>
+            <p><i class="fas fa-map-marker-alt"></i> Location: Meenangadi, Kerala, India</p>
+            <p><i class="fas fa-envelope"></i> Email: aby.pious.in@gmail.com</p>
+            <p><i class="fas fa-phone"></i> Call: +91 7356495708</p>
+            <p><i class="fas fa-home"></i> Address: Parakkudi, Choothupara, Manikave, 673596</p>
+            <p><i class="fas fa-comment"></i> Message: 7356495708</p>
+        </div>
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form action="https://formsubmit.co/dementor.help@gmail.com" method="POST">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+				<input type="hidden" name="_captcha" value="false">
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
