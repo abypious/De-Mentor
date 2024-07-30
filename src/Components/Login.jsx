@@ -14,6 +14,10 @@ const Login = () => {
     setAction('');
   };
 
+  const resetlink = () =>{
+    setAction('forgot')
+  }
+
   const[show,setShow] = useState('');
 
   const handleshow = () => {
@@ -43,7 +47,7 @@ const Login = () => {
         <button type='submit'>Login</button>
 
         <div className="forgot">
-          <a href="#">Forgot Password</a>
+          <a href="#" onClick={resetlink}>Forgot Password</a>
         </div>
 
         <div className="register">
@@ -69,12 +73,25 @@ const Login = () => {
           <label onClick={handleshow}>Show</label>
         </div>
         
-        <button type='submit'>Sign in</button>
+        <button type='submit'>Sign In</button>
 
 
         <div className="register">
-          <p>Already have an account? <a href="#"onClick={loginlink} >Log in</a></p>
+          <p>Already have an account? <a href="#"onClick={loginlink} >Log In</a></p>
               </div>
+      </form>
+      </div> 
+
+      <div className="form-box reset">
+      <form action="">
+        <h2 className='h2'>Reset Password</h2>
+
+        <div className="input-box">
+          <input type="text" placeholder='Email id' required/>
+        </div>
+        
+        <button type='submit'>Send OTP</button>
+      <p><a href="#" onClick={loginlink}>Go to Login Page</a></p>
       </form>
       </div> 
 
