@@ -3,18 +3,31 @@ import { Link } from 'react-router-dom'; // Import Link
 import './Login.css';
 import{auth} from '../firebase'
 import{ createUserWithEmailAndPassword } from 'firebase/auth'
+import{ signInWithEmailAndPassword } from 'firebase/auth'
+
+
 const Login = () => {
-  const [action, setAction] = useState('');
+  const [action, setAction] = useState(''); 
   const [show, setShow] = useState(false);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSignin = async (e) => {
     e.preventDefault()
     try{
-      createUserWithEmailAndPassword(auth, email, password)
-      console.org("Account created succesfully")
+      await signInWithEmailAndPassword(auth, email, password)
+      console.log("Login succesfully")
+    } catch(err) {
+      console.log(err)
+    }
+  }
+
+  const handleSighnup = async (e) => {
+    e.preventDefault()
+    try{
+      await createUserWithEmailAndPassword(auth, email, password)
+      console.log("Account created succesfully")
     } catch(err) {
       console.log(err)
     }
@@ -45,7 +58,7 @@ const Login = () => {
       <div className={`wrapper ${action}`}>
         {/* Login Form */}
         <div className="form-box login">
-          <form className='signin-page' onSubmit={handleSubmit}>
+          <form className='signin-page' onSubmit={handleSignin}>
             <h1>Login</h1>
             <div className="input-box">
               <input type="text" onChange={(e) => setEmail(e.target.value)} placeholder='Email id' required />
@@ -58,29 +71,29 @@ const Login = () => {
             <div className="forgot">
               <a href="#" onClick={resetlink}>Forgot Password</a>
             </div>
-            <div className="Register">
-              <p>Don&apos;t have an account? <a href="#" onClick={Register}>Sign in</a></p>
+            <div className="register">
+              <p>Don&apos;t have an account? <a href="#" onClick={register}>Sign UP</a></p>
             </div>
           </form>
         </div>
 
-        {/* Sign-In Form */}
+        {/* Sign-UP Form */}
         <div className="form-box signin">
-          <form>
-            <h1>Sign in</h1>
+          <form className="signup-page" onSubmit={handleSighnup}>
+            <h1>Sign UP</h1>
             <div className="input-box">
-              <input type="text" placeholder='Email id' required />
+              <input type="text" placeholder='Email id' onChange={(e) => setEmail(e.target.value)} required />
             </div>
             <div className="input-box">
-              <input type={show ? "text" : "password"} placeholder='Password' required />
+              <input type={show ? "text" : "password"} placeholder='Password' onChange={(e) => setPassword(e.target.value)} required />
               <label onClick={handleshow}>Show</label>
             </div>
             <div className="input-box">
               <input type={show ? "text" : "password"} placeholder='Confirm Password' required />
               <label onClick={handleshow}>Show</label>
             </div>
-            <button type='submit'>Sign In</button>
-            <div className="Register">
+            <button type='submit'>Create</button>
+            <div className="register">
               <p>Already have an account? <Link to="/login" onClick={loginlink}>Log In</Link></p>
             </div>
           </form>
