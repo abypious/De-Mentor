@@ -1,16 +1,17 @@
-import Login from './Components/Login'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Home from './Components/Home';
+import Login from './Components/Login';
 
 const App = () => {
   return (
-    <BrowserRouter>
-    <Route>
-      <Routes path='/login' element={<Login />}></Routes>
-    </Route>
-      <Login/>
-    </BrowserRouter>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<><Navbar /><Home /></>} />
+        <Route path="/login" element={<><Login /></>} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
-
+export default App;

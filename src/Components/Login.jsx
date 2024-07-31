@@ -1,98 +1,91 @@
-import React, { useState } from 'react'
-import './Login.css'
-import {app} from '../firebase'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link
+import './Login.css';
 
 const Login = () => {
+  const [action, setAction] = useState('');
+  const [show, setShow] = useState(false);
 
-  const[action,setAction] = useState('')
-  const[email, setEmail] = useState('')
-  const[password, setPassword] = useState('')
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    try{
-      app.auth().createUserWithEmailAndPassword(email, password)
-      console.log("account created !!")
-    } catch(err){
-      console.log(err)
-    }
-  }
-
-  const register = () => {
+  const register = (e) => {
+    e.preventDefault();
     setAction('active');
   };
 
-  const loginlink = () => {
+  const loginlink = (e) => {
+    e.preventDefault();
     setAction('');
   };
 
-  const[show,setShow] = useState('');
+  const resetlink = (e) => {
+    e.preventDefault();
+    setAction('forgot');
+  };
 
   const handleshow = () => {
-    setShow(!show)
-  }
+    setShow(!show);
+  };
 
   return (
     <div>
       <h1 className='heading'>De-Mentor</h1>
       <div className={`wrapper ${action}`}>
+        {/* Login Form */}
         <div className="form-box login">
-
-       <form action="">
-        <h1>Login</h1>
- 
-        <div className="input-box">
-          <input type="text" placeholder='Email id' required/>
+          <form>
+            <h1>Login</h1>
+            <div className="input-box">
+              <input type="text" placeholder='Email id' required />
+            </div>
+            <div className="input-box">
+              <input type={show ? "text" : "password"} placeholder='Password' required />
+              <label onClick={handleshow}>Show</label>
+            </div>
+            <button type='submit'>Login</button>
+            <div className="forgot">
+              <a href="#" onClick={resetlink}>Forgot Password</a>
+            </div>
+            <div className="register">
+              <p>Don't have an account? <a href="#" onClick={register}>Sign in</a></p>
+            </div>
+          </form>
         </div>
 
-        <div className="input-box">
-          <input type={show?"text":"password"} placeholder='Password' required />
-          <label onClick={handleshow}>Show</label>
+        {/* Sign-In Form */}
+        <div className="form-box signin">
+          <form>
+            <h1>Sign in</h1>
+            <div className="input-box">
+              <input type="text" placeholder='Email id' required />
+            </div>
+            <div className="input-box">
+              <input type={show ? "text" : "password"} placeholder='Password' required />
+              <label onClick={handleshow}>Show</label>
+            </div>
+            <div className="input-box">
+              <input type={show ? "text" : "password"} placeholder='Confirm Password' required />
+              <label onClick={handleshow}>Show</label>
+            </div>
+            <button type='submit'>Sign In</button>
+            <div className="register">
+              <p>Already have an account? <Link to="/login" onClick={loginlink}>Log In</Link></p>
+            </div>
+          </form>
         </div>
-        
-        <button type='submit'>Login</button>
 
-        <div className="forgot">
-          <a href="#">Forgot Password</a>
+        {/* Reset Password Form */}
+        <div className="form-box reset">
+          <form>
+            <h2 className='h2'>Reset Password</h2>
+            <div className="input-box">
+              <input type="text" placeholder='Email id' required />
+            </div>
+            <button type='submit'>Send OTP</button>
+            <p><Link to="/login" onClick={loginlink}>Go to Login Page</Link></p>
+          </form>
         </div>
-
-        <div className="register">
-          <p>Don&apos;t have an account? <a href="#" onClick={register}>Sign in</a></p>
-              </div>
-              </form>
       </div>
-       
-      <div className="form-box signin">
-      <form action="" className='login-form' onSubmit={handleSubmit}>
-        <h1>Sign in</h1>
+    </div>
+  );
+};
 
-        <div className="input-box">
-          <input type="text" onChange={(e) => setEmail(e.target.value)} placeholder='Email id' required/>
-        </div>
-
-        <div className="input-box">
-          <input type={show?"text":"password"} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required />
-          <label onClick={handleshow}>Show</label>
-        </div>
-        <div className="input-box">
-        <input type={show?"text":"password"} placeholder='Confirm Password' required />
-          <label onClick={handleshow}>Show</label>
-        </div>
-        
-        <button type='submit'>Sign in</button>
-
-
-        <div className="register">
-          <p>Already have an account? <a href="#"onClick={loginlink} >Log in</a></p>
-              </div>
-      </form>
-      </div> 
-
-      </div>
-      </div>
-
-
-  )
-}
-
-export default Login
+export default Login;

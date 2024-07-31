@@ -1,6 +1,6 @@
 .wrapper{
     position: relative; 
-    margin-left: -20px;
+    margin-left: 500px;
     align-items: center;
     justify-content: center;
     background: #F0F2F6;
@@ -8,7 +8,7 @@
     height: 500px;
     border-radius: 13px;
     display: flex;
-    overflow: hidden;  
+     overflow: hidden;
     transition: height .2s ease;
 }
 .wrapper .form-box{
@@ -24,30 +24,39 @@
     transition: none;
     translate:-400px;
 }
-/* 
-.wrapper.active-forgot .form-box.login{
-    transition: none;
-    transition: 400px;
-} */
-
-
 .wrapper .form-box.signin{
     /* margin-left: 100px; */
     position: absolute;
     transition: none;
     translate: 400px;
 }
-/* 
-.wrapper.active-forgot .form-box.forgot{
+.wrapper .form-box.reset{
+    translate: -400px;
+    margin-left: -390px;
+}
+.wrapper.forgot .form-box.reset{
+    transition: none;
+    translate: 0;
+}
+.wrapper.forgot .form-box.login{
+    transition: none;
+    translate: -400px ;
+}
+
+/* .wrapper.active-forgot .form-box.reset{
     transition: translate .18 ease;
     translate: 0;
 }
 .wrapper .form-box.forgot{
-    margin-left: 100px;
-    position: absolute;
+    /* margin-left: 100px; */
+    /* position: absolute;
     transition: none;
     translate: 400px;
-} */
+}
+.wrapper.active-forgot .form-box.login{
+    transition: none;
+    transition: 400px;
+} */ 
 
 
 
@@ -57,6 +66,12 @@
     margin-top: 4%;
 
 }
+.h2{
+    margin-top: 0px;
+    margin-top: 0;
+    color:#03A9F4;
+}
+
 form h1{
     color: #03A9F4;
     margin-left: 100px;
