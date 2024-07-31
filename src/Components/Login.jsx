@@ -1,10 +1,22 @@
 import React, { useState } from 'react'
 import './Login.css'
-
+import {app} from '../firebase'
 
 const Login = () => {
 
-  const[action,setAction] = useState('');
+  const[action,setAction] = useState('')
+  const[email, setEmail] = useState('')
+  const[password, setPassword] = useState('')
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try{
+      app.auth().createUserWithEmailAndPassword(email, password)
+      console.log("account created !!")
+    } catch(err){
+      console.log(err)
+    }
+  }
 
   const register = () => {
     setAction('active');
@@ -20,8 +32,6 @@ const Login = () => {
     setShow(!show)
   }
 
-
-
   return (
     <div>
       <h1 className='heading'>De-Mentor</h1>
@@ -30,7 +40,7 @@ const Login = () => {
 
        <form action="">
         <h1>Login</h1>
-
+ 
         <div className="input-box">
           <input type="text" placeholder='Email id' required/>
         </div>
@@ -47,21 +57,21 @@ const Login = () => {
         </div>
 
         <div className="register">
-          <p>Don't have an account? <a href="#" onClick={register}>Sign in</a></p>
+          <p>Don&apos;t have an account? <a href="#" onClick={register}>Sign in</a></p>
               </div>
               </form>
       </div>
        
       <div className="form-box signin">
-      <form action="">
+      <form action="" className='login-form' onSubmit={handleSubmit}>
         <h1>Sign in</h1>
 
         <div className="input-box">
-          <input type="text" placeholder='Email id' required/>
+          <input type="text" onChange={(e) => setEmail(e.target.value)} placeholder='Email id' required/>
         </div>
 
         <div className="input-box">
-          <input type={show?"text":"password"} placeholder='Password' required />
+          <input type={show?"text":"password"} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required />
           <label onClick={handleshow}>Show</label>
         </div>
         <div className="input-box">
