@@ -20,7 +20,7 @@ const Login = () => {
     }
   }
 
-  const register = (e) => {
+  const Register = (e) => {
     e.preventDefault();
     setAction('active');
   };
@@ -58,8 +58,8 @@ const Login = () => {
             <div className="forgot">
               <a href="#" onClick={resetlink}>Forgot Password</a>
             </div>
-            <div className="register">
-              <p>Don&apos;t have an account? <a href="#" onClick={register}>Sign in</a></p>
+            <div className="Register">
+              <p>Don&apos;t have an account? <a href="#" onClick={Register}>Sign in</a></p>
             </div>
           </form>
         </div>
@@ -80,7 +80,7 @@ const Login = () => {
               <label onClick={handleshow}>Show</label>
             </div>
             <button type='submit'>Sign In</button>
-            <div className="register">
+            <div className="Register">
               <p>Already have an account? <Link to="/login" onClick={loginlink}>Log In</Link></p>
             </div>
           </form>

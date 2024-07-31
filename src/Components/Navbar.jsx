@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link
 import logo from "../assets/logo.png";
 import { navItems } from "../constants";
+import  "./Navbar.css"
 
 const Navbar = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -28,17 +29,22 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <div className="hidden lg:flex justify-center space-x-12 items-center">
+          {/* <div className="hidden lg:flex justify-center space-x-12 items-center">
             <Link to="/login" className="py-2 px-6 border rounded-md transition-colors duration-300 ease-in-out hover:bg-pink-600 hover:scale-105">
               Sign In
             </Link>
-            <a
-              href="#"
-              className="bg-gradient-to-r from-green-500 to-green-800 py-2 px-3 rounded-md ease-in-out hover:scale-105 "
-            >
-              Create an account
-            </a>
-          </div>
+         
+          </div> */}
+          <div>
+          <div class="tooltip-container">
+            <a href= "/login">
+  {/* <span class="tooltip">DeMentor</span> */}
+  <span class="text">LogIn</span>
+  <span >Hello! 👋</span>
+  </a>
+</div>
+</div>
+
           <div className="lg:hidden md:flex flex-col justify-end">
             <button onClick={toggleNavbar}>
               {mobileDrawerOpen ? <X /> : <Menu />}
@@ -54,17 +60,22 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            <div className="flex space-x-6">
+            {/* <div className="flex space-x-6">
               <Link to="/login" className="py-2 px-3 border rounded-md transition-colors duration-300 ease-in-out hover:bg-pink-600 hover:scale-105">
                 Sign In
               </Link>
-              <a
-                href="#"
-                className="py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-orange-800 ease-in-out hover:scale-105"
-              >
-                Create an account
-              </a>
-            </div>
+           
+            </div> */}
+            <div>
+          <div class="tooltip-container">
+            <Link to="/login">
+  <span class="tooltip">Uiverse.io</span>
+  <span class="text">Tooltip 👆</span>
+  <span >Hello! 👋</span>
+  </Link>
+</div>
+</div>
+
           </div>
         )}
       </div>

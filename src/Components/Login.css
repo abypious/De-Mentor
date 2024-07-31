@@ -3,13 +3,15 @@
     margin-left: 500px;
     align-items: center;
     justify-content: center;
-    background: #F0F2F6;
+    background: rgba(240, 242, 246, 0.5);
     width: 400px;
     height: 500px;
     border-radius: 13px;
     display: flex;
      overflow: hidden;
     transition: height .2s ease;
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
 }
 .wrapper .form-box{
     width: 100%;
