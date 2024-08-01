@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword, signInWithNameEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
   const [action, setAction] = useState(''); 
@@ -11,15 +10,14 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState(''); // State for confirm password
-  const [error, setError] = useState(''); // State for error messages
+  const [confirmPassword, setConfirmPassword] = useState(''); 
+  const [error, setError] = useState(''); 
   const navigate = useNavigate();
-
 
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithNameEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
       console.log("Login successful");
       navigate('/Navbarlogin');
     } catch (err) {
@@ -30,30 +28,20 @@ const Login = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setError('Passwords do not match ! ! ');
+      setError('Passwords do not match!');
       return;
     }
     try {
-      await createUserWithEmailAndPassword(auth, name, email, password);
+      await createUserWithEmailAndPassword(auth, email, password);
       console.log("Account created successfully");
     } catch (err) {
       setError('Signup failed. Please try again.');
     }
   };
 
-  const register = (e) => {
-    e.preventDefault();
-    setAction('active');
-  };
-
   const loginlink = (e) => {
     e.preventDefault();
     setAction('');
-  };
-
-  const resetlink = (e) => {
-    e.preventDefault();
-    setAction('forgot');
   };
 
   const handleshow = () => {
@@ -69,10 +57,6 @@ const Login = () => {
       setError('Google sign-in failed. Please try again.');
     }
   };
-
-  // const handleForgotPasswordNavigation = () => {
-  //   navigate('/forgot-password');
-  // };
 
   return (
     <div className="wrapper">
@@ -106,7 +90,6 @@ const Login = () => {
                 <label className="show-password" onClick={handleshow}>Show</label>
                 <button className="flip-card__btn" type="submit">Let&apos;s go!</button>
                 <div className="forgot">
-                {/* onClick={handleForgotPasswordNavigation} */}
                 <Link to="/forgot-password">Forgot Password?</Link>
                 </div>
                 <button type="button" className="flip-card__btn google-signin" onClick={handleGoogleSignIn}>
