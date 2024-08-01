@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 import { navItems } from "../constants";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbarlogin = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -68,4 +68,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbarlogin;
