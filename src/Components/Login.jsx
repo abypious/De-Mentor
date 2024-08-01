@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
-const Login = () => {
+  const Login = () => {
   const [action, setAction] = useState(''); 
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState(''); // State for confirm password
-  const [error, setError] = useState(''); // State for error messages
+  const [confirmPassword, setConfirmPassword] = useState(''); 
+  const [error, setError] = useState(''); 
   const navigate = useNavigate();
 
   const handleSignin = async (e) => {
@@ -23,7 +23,7 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("Login successful");
-      navigate('/Navbarlogin');
+      navigate('/mainpage');
     } catch (err) {
       setError('Login failed. Please check your credentials.');
     }
@@ -35,8 +35,8 @@ const Login = () => {
       setError('Email must be at least 3 characters long.');
       return;
     }
-    if (password !== confirmPassword) {
-      setError('Passwords do not match.');
+    if (password !== confirmPassword
+      setError('Passwords do not match!');
       return;
     }
     try {
@@ -50,6 +50,10 @@ const Login = () => {
   const loginlink = (e) => {
     e.preventDefault();
     setAction('');
+  };
+
+  const handleshow = () => {
+    setShow(!show);
   };
 
   const handleGoogleSignIn = async () => {
@@ -93,7 +97,8 @@ const Login = () => {
 
                 <button className="flip-card__btn" type="submit">Let's go!</button>
                 <div className="forgot">
-                  <Link to="/forgot-password">Forgot Password?</Link>
+                <Link to="/forgot-password">Forgot Password?</Link>
+                
                 </div>
                 <button type="button" className="flip-card__btn google-signin" onClick={handleGoogleSignIn}>
                   Google Sign in
