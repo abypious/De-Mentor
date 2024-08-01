@@ -4,6 +4,7 @@ import Home from './Components/Home';
 import Login from './Components/Login';
 import Contact from './Components/Contact';
 import Navbarlogin from './Components/Navbarlogin';
+import Forgot from './Components/Forgot';
 
 
 
@@ -15,7 +16,8 @@ const App = () => {
         <Route path="/login" element={<><Login /></>} />
         <Route path="/Contact" element={<><Contact /></>} />
         <Route path="/mainpage" element={<><Navbarlogin /></>} />
-    
+        <Route path="/forgot-password" element={<><Forgot /></>} />
+
       </Routes>
     </Router>
   );
