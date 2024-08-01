@@ -102,7 +102,7 @@ const Login = () => {
         {/* Reset Password Form */}
         <div className="form-box reset">
           <form>
-            <h2 className='h2'>Reset Password</h2>
+            <h2 className='h2'>Reset /</h2>
             <div className="input-box">
               <input type="text" placeholder='Email id' required />
             </div>
