@@ -1,43 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import './Quit.css'; // Import the CSS file
 
-const QuitPorn = () => {
+const QuitScreen = () => {
   // Define tasks for each week with detailed descriptions
-  const pornTasks = {
+  const screenTasks = {
     week1: [
-      { day: 1, description: 'Commitment and Motivation', details: 'Reflect on why you want to quit watching porn and remind yourself of these reasons daily.' },
-      { day: 2, description: 'Assess Your Porn Habits', details: 'Track when, where, and why you watch porn to understand your habits better.' },
-      { day: 3, description: 'Identify Triggers', details: 'Identify the situations, emotions, or people that trigger your urge to watch porn.' },
-      { day: 4, description: 'Create a Plan', details: 'Develop a personalized quit plan that includes your quit date and strategies to handle cravings.' },
-      { day: 5, description: 'Stay Busy', details: 'Engage in activities that keep your mind and hands busy to distract yourself from watching porn.' },
+      { day: 1, description: 'Commitment and Motivation', details: 'Reflect on why you want to reduce screen time and remind yourself of these reasons daily.' },
+      { day: 2, description: 'Assess Your Screen Habits', details: 'Track how much time you spend on screens and what activities you engage in.' },
+      { day: 3, description: 'Identify Triggers', details: 'Identify the situations, emotions, or people that trigger excessive screen use.' },
+      { day: 4, description: 'Create a Plan', details: 'Develop a personalized plan that includes specific goals and strategies to limit screen time.' },
+      { day: 5, description: 'Stay Busy', details: 'Engage in activities that keep your mind and hands busy to distract yourself from screens.' },
     ],
     week2: [
-      { day: 1, description: 'Find Alternatives', details: 'Find healthy alternatives to replace the act of watching porn, such as reading or exercising.' },
-      { day: 2, description: 'Set a Quit Date', details: 'Choose a date to quit watching porn and mark it on your calendar as a commitment to yourself.' },
-      { day: 3, description: 'Remove Access to Porn', details: 'Get rid of or block access to websites and materials that provide pornographic content.' },
-      { day: 4, description: 'Inform Friends and Family', details: 'Let your friends and family know about your plan to quit so they can support you.' },
-      { day: 5, description: 'Stay Active', details: 'Incorporate physical activities into your daily routine to help reduce cravings and improve your mood.' },
+      { day: 1, description: 'Find Alternatives', details: 'Find healthy alternatives to screen time, such as reading, exercising, or hobbies.' },
+      { day: 2, description: 'Set Screen-Free Times', details: 'Designate certain times of the day as screen-free periods to break the habit.' },
+      { day: 3, description: 'Limit Access to Screens', details: 'Remove or limit access to devices during meals, before bed, and in other key moments.' },
+      { day: 4, description: 'Inform Friends and Family', details: 'Let your friends and family know about your plan to reduce screen time so they can support you.' },
+      { day: 5, description: 'Stay Active', details: 'Incorporate physical activities into your daily routine to help reduce the urge to use screens.' },
     ],
     week3: [
-      { day: 1, description: 'Avoid Triggers', details: 'Avoid places and situations that you associate with watching porn to reduce temptation.' },
+      { day: 1, description: 'Avoid Triggers', details: 'Avoid situations and activities that you associate with excessive screen use to reduce temptation.' },
       { day: 2, description: 'Practice Relaxation', details: 'Use relaxation techniques like deep breathing or meditation to manage stress and cravings.' },
       { day: 3, description: 'Healthy Habits', details: 'Focus on developing healthy habits to replace your previous behavior.' },
-      { day: 4, description: 'Stay Hydrated', details: 'Drink plenty of water to help flush toxins from your body and reduce cravings.' },
+      { day: 4, description: 'Stay Hydrated', details: 'Drink plenty of water to help reduce cravings and maintain overall health.' },
       { day: 5, description: 'Track Your Progress', details: 'Keep a journal of your progress to stay motivated and identify any patterns in your cravings.' },
     ],
     week4: [
       { day: 1, description: 'Reward Yourself', details: 'Celebrate your milestones by rewarding yourself with something enjoyable.' },
       { day: 2, description: 'Join a Support Group', details: 'Participate in a support group to share experiences and gain encouragement from others.' },
-      { day: 3, description: 'Stay Positive', details: 'Focus on the positive changes and benefits you experience from quitting porn.' },
+      { day: 3, description: 'Stay Positive', details: 'Focus on the positive changes and benefits you experience from reducing screen time.' },
       { day: 4, description: 'Manage Stress', details: 'Develop healthy ways to cope with stress, such as exercise, hobbies, or talking to a friend.' },
-      { day: 5, description: 'Stay Committed', details: 'Remind yourself of your reasons for quitting and stay committed to your goal.' },
+      { day: 5, description: 'Stay Committed', details: 'Remind yourself of your reasons for reducing screen time and stay committed to your goal.' },
     ],
     week5: [
       { day: 1, description: 'Reflect on Your Journey', details: 'Look back on how far you have come and the challenges you have overcome.' },
-      { day: 2, description: 'Plan for the Future', details: 'Create a long-term plan to maintain your porn-free lifestyle and handle potential relapses.' },
-      { day: 3, description: 'Avoid Overconfidence', details: 'Stay vigilant and don’t let overconfidence lead you back to watching porn.' },
-      { day: 4, description: 'Continue Healthy Habits', details: 'Maintain the healthy habits you have developed during your quitting journey.' },
-      { day: 5, description: 'Celebrate Milestones', details: 'Acknowledge and celebrate each milestone, no matter how small, as a step towards a porn-free life.' },
+      { day: 2, description: 'Plan for the Future', details: 'Create a long-term plan to maintain your reduced screen time and handle potential relapses.' },
+      { day: 3, description: 'Avoid Overconfidence', details: 'Stay vigilant and don’t let overconfidence lead you back to excessive screen use.' },
+      { day: 4, description: 'Continue Healthy Habits', details: 'Maintain the healthy habits you have developed during your journey to reduce screen time.' },
+      { day: 5, description: 'Celebrate Milestones', details: 'Acknowledge and celebrate each milestone, no matter how small, as a step towards a healthier relationship with screens.' },
     ],
   };
 
@@ -81,12 +81,12 @@ const QuitPorn = () => {
           key={week}
           className={`page ${currentWeek === week ? 'active' : ''}`}
         >
-          <h1>Quit Porn</h1>
+          <h1>Quit Screen Addiction</h1>
           
           <h2>{`Week ${week.slice(-1)}`}</h2>
           
           <ul>
-            {pornTasks[week].map((step, index) => (
+            {screenTasks[week].map((step, index) => (
               <li key={index}>
                 <strong>Day {step.day}: {step.description}</strong>
                 <p>{step.details}</p>
@@ -107,4 +107,4 @@ const QuitPorn = () => {
   );
 };
 
-export default QuitPorn;
+export default QuitScreen;

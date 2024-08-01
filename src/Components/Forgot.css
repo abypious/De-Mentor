@@ -125,7 +125,7 @@
   
 .card__btn {
     margin: 120px 0 20px 0;
-    width: 120px;
+    width: 150px;
     height: 40px;
     border-radius: 5px;
     border: 2px solid var(--main-color);
@@ -160,6 +160,7 @@
   .otp-box form {
     display: flex;
     gap: 10px;
+    margin-left: 10px;
   }
   
   .otp-box input[type="number"] {
@@ -171,7 +172,7 @@
     border-radius: 5px;
     outline: none;
     transition: border-color 0.3s;
-  }
+}
   
   .otp-box input[type="number"]:focus {
     border-color: #007bff;
@@ -181,5 +182,9 @@
     background-color: #f0f0f0;
     border-color: #ddd;
     cursor: not-allowed;
+  }
+  form button{
+    align-items: center;
+    display: flex;
   }
   
