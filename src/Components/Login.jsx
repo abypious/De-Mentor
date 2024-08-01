@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithNameEmailAndPassword } from 'firebase/auth';
 
 const Login = () => {
   const [action, setAction] = useState(''); 
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
   const [confirmPassword, setConfirmPassword] = useState(''); // State for confirm password
   const [error, setError] = useState(''); // State for error messages
 
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithNameEmailAndPassword(auth, email, password);
       console.log("Login successful");
     } catch (err) {
       setError('Login failed. Please check your credentials.');
@@ -25,11 +26,11 @@ const Login = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setError('Passwords do not match.');
+      setError('Passwords do not match ! ! ');
       return;
     }
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, name, email, password);
       console.log("Account created successfully");
     } catch (err) {
       setError('Signup failed. Please try again.');
@@ -103,6 +104,7 @@ const Login = () => {
                   className="flip-card__input"
                   placeholder="Name"
                   type="text"
+                  onChange={(e) => setName(e.target.value)}
                   required
                 />
                 <input
