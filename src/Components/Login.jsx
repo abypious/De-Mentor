@@ -9,7 +9,6 @@ const Login = () => {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
   const [confirmPassword, setConfirmPassword] = useState(''); 
   const [error, setError] = useState(''); 
   const navigate = useNavigate();
@@ -105,7 +104,6 @@ const Login = () => {
                   className="flip-card__input"
                   placeholder="Name"
                   type="text"
-                  onChange={(e) => setName(e.target.value)}
                   required
                 />
                 <input
