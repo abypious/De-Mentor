@@ -13,11 +13,11 @@ const Navbarlogin = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 py-3 backdrop-blur-xl border-neutral-700/80">
-      <div className="container px-4 mx-auto relative lg:text-sm">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center flex-shrink-0">
-            <img className="h-20 w-20 mr-2" src={logo} alt="Logo" />
+   <nav className="navbarlogin">
+      <div className="navbarlogin-container">
+        <div className="navbarlogin-flex">
+          <div className="navbarlogin-logo-container">
+            <img className="navbarlogin-logo" src={logo} alt="Logo" />
             <Link to="/" className="text-2xl tracking-tight">
               DeMentor
             </Link>

@@ -5,6 +5,9 @@ import Login from './Components/Login';
 import Contact from './Components/Contact';
 import Navbarlogin from './Components/Navbarlogin';
 import Forgot from './Components/Forgot';
+import QuitAlcohol from './Components/QuitAlcohol';
+import QuitSmoking from './Components/QuitSmoking';
+import QuitPorn from './Components/QuitPorn';
 
 
 
@@ -17,6 +20,9 @@ const App = () => {
         <Route path="/Contact" element={<><Contact /></>} />
         <Route path="/mainpage" element={<><Navbarlogin /></>} />
         <Route path="/forgot-password" element={<><Forgot /></>} />
+        <Route path="/qs" element={<><QuitSmoking /></>} />
+        <Route path="/qa" element={<><QuitAlcohol /></>} />
+        <Route path="/qp" element={<><QuitPorn /></>} />
 
       </Routes>
     </Router>

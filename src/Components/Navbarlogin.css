@@ -1,4 +1,45 @@
+.navbarlogin {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem; /* py-3 */
+  backdrop-filter: blur(20px); /* backdrop-blur-xl */
+  border-bottom: 1px solid rgba(31, 41, 55, 0.5); /* border-neutral-700/80 */
+  width: 100%;
+ /* Optional: to make the backdrop blur more visible */
+}
 
+/* Container */
+.navbarlogin-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem; /* px-4 */
+  position: relative;
+  font-size: 0.875rem; /* lg:text-sm */
+}
+
+/* Flex container for alignment */
+.navbarlogin-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo and title */
+.navbarlogin-logo-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.navbarlogin-logo {
+  height: 5rem; /* h-20 */
+  width: 5rem; /* w-20 */
+  margin-right: 0.5rem; /* mr-2 */
+}
 
 .tooltip-container {
   --background: #333333;
