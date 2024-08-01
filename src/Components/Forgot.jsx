@@ -3,23 +3,25 @@ import './Forgot.css';
 import { auth } from '../firebase';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Forgot = () => {
   const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
   const navigate = useNavigate();
 
   const handlePasswordReset = async (e) => {
     e.preventDefault();
     try {
       await sendPasswordResetEmail(auth, email);
-      setSuccess('Password reset email sent! Check your inbox.');
+      toast.success('Password reset email sent! Check your inbox.');
+      // Only navigate after successfully sending the email
       setTimeout(() => {
-        navigate('/reset-password');  // Navigate to reset password page after successful email
+        navigate('/login');  // Navigate to reset password page after successful email
       }, 2000);  // Wait for 2 seconds before navigating
     } catch (err) {
-      setError('Failed to send reset email. Please try again.');
+      console.error('Error sending password reset email:', err); // Log the error to the console
+      toast.error('Failed to send reset email. Please try again.');
     }
   };
 
@@ -28,8 +30,6 @@ const Forgot = () => {
       <div className="card-switch">
         <div className="card__front">
           <form className="flip-card__form" onSubmit={handlePasswordReset}>
-            {error && <p className="error">{error}</p>}
-            {success && <p className="success">{success}</p>}
             <span className='card-heading'>Reset Password</span>
             <input
               className="card__input"
@@ -40,9 +40,10 @@ const Forgot = () => {
               required
             />
             <button className="card__btn" type="submit">Send Link</button>
-          </form> 
+          </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
