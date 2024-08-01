@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import './Quit.css'; // Import the CSS file
 
-const QuitSmoking = () => {
+const QuitAlcohol = () => {
   // Define tasks for each week
-  const tasks = {
+  const alcoholTasks = {
     week1: [
       { day: 1, description: 'Commitment and Motivation' },
-      { day: 2, description: 'Assess Your Smoking Habits' },
+      { day: 2, description: 'Assess Your Drinking Habits' },
       { day: 3, description: 'Identify Triggers' },
       { day: 4, description: 'Create a Plan' },
       { day: 5, description: 'Stay Busy' },
@@ -15,7 +15,7 @@ const QuitSmoking = () => {
     week2: [
       { day: 1, description: 'Find Alternatives' },
       { day: 2, description: 'Set a Quit Date' },
-      { day: 3, description: 'Remove Smoking Accessories' },
+      { day: 3, description: 'Remove Alcohol from Your Home' },
       { day: 4, description: 'Inform Friends and Family' },
       { day: 5, description: 'Stay Active' },
     ],
@@ -41,6 +41,7 @@ const QuitSmoking = () => {
       { day: 5, description: 'Celebrate Milestones' },
     ],
   };
+  
 
   // Define state for current week
   const [currentWeek, setCurrentWeek] = useState('week1');
@@ -82,12 +83,12 @@ const QuitSmoking = () => {
           key={week}
           className={`page ${currentWeek === week ? 'active' : ''}`}
         >
-          <h1>Quit Smoking</h1>
+          <h1>Quit Drinking</h1>
           
           <h2>{`Week ${week.slice(-1)}`}</h2>
           
           <ul>
-            {tasks[week].map((step, index) => (
+            {alcoholTasks[week].map((step, index) => (
               <li key={index}>
                 Day {step.day}: {step.description}
               </li>
@@ -110,4 +111,4 @@ const QuitSmoking = () => {
   );
 };
 
-export default QuitSmoking;
+export default QuitAlcohol;
