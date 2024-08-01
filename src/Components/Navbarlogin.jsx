@@ -1,9 +1,9 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { navItems } from "../constants";
-import "./Navbarlogin.css";
+import "../Components/Navbarlogin.css";
 
 const Navbarlogin = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -14,11 +14,11 @@ const Navbarlogin = () => {
 
   return (
     <nav className="sticky top-0 z-50 py-3 backdrop-blur-xl border-neutral-700/80">
-    <div className="container px-4 mx-auto relative lg:text-sm">
-      <div className="flex justify-between items-center">
-        <div className="flex items-center flex-shrink-0">
-          <img className="h-20 w-20 mr-2" src={logo} alt="Logo" />
-          <Link to="/" className="text-2xl tracking-tight">
+      <div className="container px-4 mx-auto relative lg:text-sm">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center flex-shrink-0">
+            <img className="h-20 w-20 mr-2" src={logo} alt="Logo" />
+            <Link to="/" className="text-2xl tracking-tight">
               DeMentor
             </Link>
           </div>
@@ -29,15 +29,10 @@ const Navbarlogin = () => {
               </li>
             ))}
           </ul>
-
-         
           <div className="hidden lg:flex tooltip-container">
-            <Link to="/login">
-              <button className="text">Logout</button>
-              <button>SeeYa!👋</button>
-            </Link>
+            <div className="text">Logout</div>
+            <button>SeeYa!👋</button>
           </div>
-
           <div className="lg:hidden md:flex flex-col justify-end">
             <button onClick={toggleNavbar}>
               {mobileDrawerOpen ? <X /> : <Menu />}
@@ -46,20 +41,16 @@ const Navbarlogin = () => {
         </div>
         {mobileDrawerOpen && (
           <div className="fixed right-0 z-20 bg-neutral-900 w-full p-12 flex flex-col justify-center items-center lg:hidden">
-             <ul>
+            <ul>
               {navItems.map((item, index) => (
                 <li key={index} className="py-4">
                   <Link to={item.href}>{item.label}</Link>
                 </li>
               ))}
             </ul>
-
-            
             <div className="tooltip-container">
-              <Link to="/login">
-                <button className="text">Get Started</button>
-                <button>Login</button>
-              </Link>
+              <div className="text">Get Started</div>
+              <button>Login</button>
             </div>
           </div>
         )}
