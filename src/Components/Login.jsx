@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import './Login.css';
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail, confirmPasswordReset, verifyPasswordResetCode } from 'firebase/auth';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
   const Login = () => {
   const [action, setAction] = useState(''); 
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
   const [confirmPassword, setConfirmPassword] = useState(''); 
-  const [error, setError] = useState(''); 
+  const [resetEmail, setResetEmail] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmNewPassword, setConfirmNewPassword] = useState('');
+  const [actionCode, setActionCode] = useState('');
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   const handleSignin = async (e) => {
     e.preventDefault();
@@ -22,62 +27,97 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
     }
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      console.log("Login successful");
-      navigate('/mainpage');
+      toast.success("Login successful");
+      navigate('/Navbarlogin');
     } catch (err) {
-      setError('Login failed. Please check your credentials.');
+      toast.error('Login failed. Please check your credentials.');
     }
   };
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    if (email.length < 3) {
-      setError('Email must be at least 3 characters long.');
-      return;
-    }
-    if (password !== confirmPassword
-      setError('Passwords do not match!');
+    if (password !== confirmPassword) {
+      toast.error('Passwords do not match!');
       return;
     }
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      console.log("Account created successfully");
+      toast.success("Account created successfully");
+      setAction('');
     } catch (err) {
-      setError('Signup failed. Please try again.');
+      toast.error('Signup failed. Please try again.');
     }
   };
 
-  const loginlink = (e) => {
+  const handleResetPassword = async (e) => {
     e.preventDefault();
-    setAction('');
+    try {
+      await sendPasswordResetEmail(auth, resetEmail);
+      toast.success('Password reset email sent! Check your inbox.');
+      setTimeout(() => {
+        setAction('');
+        navigate('/login');
+      }, 2000);  // Wait for 2 seconds before navigating
+    } catch (err) {
+      toast.error('Failed to send reset email. Please try again.');
+    }
   };
 
-  const handleshow = () => {
-    setShow(!show);
+  const handleNewPasswordReset = async (e) => {
+    e.preventDefault();
+
+    if (newPassword !== confirmNewPassword) {
+      toast.error('Passwords do not match!');
+      return;
+    }
+
+    try {
+      await confirmPasswordReset(auth, actionCode, newPassword);
+      toast.success('Password reset successful');
+      navigate('/login');
+    } catch (err) {
+      toast.error('Password reset failed. Please try again.');
+    }
   };
 
   const handleGoogleSignIn = async () => {
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-      console.log("Google sign-in successful");
+      toast.success("Google sign-in successful");
+      navigate('/Navbarlogin');
     } catch (err) {
-      setError('Google sign-in failed. Please try again.');
+      toast.error('Google sign-in failed. Please try again.');
     }
   };
+
+  useEffect(() => {
+    const code = searchParams.get('oobCode');
+    if (code) {
+      setActionCode(code);
+      setAction('reset-password');
+      verifyPasswordResetCode(auth, code)
+        .then(() => {
+          // Code is valid
+        })
+        .catch(() => {
+          toast.error('Invalid or expired action code. Please try again.');
+          navigate('/login');
+        });
+    }
+  }, [searchParams, navigate]);
 
   return (
     <div className="wrapper">
       <div className="card-switch">
         <label className="switch">
-          <input type="checkbox" className="toggle" />
+          <input type="checkbox" className="toggle" onChange={() => setAction(action === 'active' ? '' : 'active')} />
           <span className="slider"></span>
           <span className="card-side"></span>
           <div className="flip-card__inner">
           
             <div className={`flip-card__front ${action === '' ? 'active' : ''}`}>
               <form className="flip-card__form" onSubmit={handleSignin}>
-                {error && <p className="error">{error}</p>}
                 <input
                   className="flip-card__input"
                   name="email"
@@ -94,11 +134,11 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-
-                <button className="flip-card__btn" type="submit">Let's go!</button>
+                <label className="show-password" onClick={() => setShow(!show)}>Show</label>
+                <button className="flip-card__btn" type="submit">Let&apos;s go!</button>
                 <div className="forgot">
-                <Link to="/forgot-password">Forgot Password?</Link>
-                
+                  <Link to="/forgot-password" onClick={() => setAction('forgot')}>Forgot Password?</Link>
+
                 </div>
                 <button type="button" className="flip-card__btn google-signin" onClick={handleGoogleSignIn}>
                   Google Sign in
@@ -108,12 +148,10 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
 
             <div className={`flip-card__back ${action === 'active' ? 'active' : ''}`}>     
               <form className="flip-card__form" onSubmit={handleSignup}>
-                {error && <p className="error">{error}</p>}
                 <input
                   className="flip-card__input"
                   placeholder="Name"
                   type="text"
-                  onChange={(e) => setName(e.target.value)}
                   required
                 />
                 <input
@@ -145,20 +183,44 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
 
             <div className={`flip-card__reset ${action === 'forgot' ? 'active' : ''}`}>
               <h2 className='h2'>Reset Password</h2>
-              <form>
+              <form onSubmit={handleResetPassword}>
                 <input
                   className="flip-card__input"
                   type="email"
                   placeholder="Email"
+                  onChange={(e) => setResetEmail(e.target.value)}
                   required
                 />
                 <button className="flip-card__btn" type="submit">Send OTP</button>
-                <p><Link to="/login" onClick={loginlink}>Go to Login Page</Link></p>
+                <p><Link to="/login" onClick={() => setAction('')}>Go to Login Page</Link></p>
               </form>
             </div>
+
+            <div className={`flip-card__new-password ${action === 'reset-password' ? 'active' : ''}`}>
+              <h2 className='h2'>Set New Password</h2>
+              <form onSubmit={handleNewPasswordReset}>
+                <input
+                  className="flip-card__input"
+                  type="password"
+                  placeholder="New Password"
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  required
+                />
+                <input
+                  className="flip-card__input"
+                  type="password"
+                  placeholder="Confirm New Password"
+                  onChange={(e) => setConfirmNewPassword(e.target.value)}
+                  required
+                />
+                <button className="flip-card__btn" type="submit">Reset Password</button>
+              </form>
+            </div>
+
           </div>
         </label>
       </div>
+      <ToastContainer />
     </div>
   );
 };
