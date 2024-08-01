@@ -3,21 +3,23 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithNameEmailAndPassword } from 'firebase/auth';
 
 const Login = () => {
   const [action, setAction] = useState(''); 
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
   const [confirmPassword, setConfirmPassword] = useState(''); // State for confirm password
   const [error, setError] = useState(''); // State for error messages
   const navigate = useNavigate();
 
+
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithNameEmailAndPassword(auth, email, password);
       console.log("Login successful");
       navigate('/Navbarlogin');
     } catch (err) {
@@ -28,11 +30,11 @@ const Login = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setError('Passwords do not match.');
+      setError('Passwords do not match ! ! ');
       return;
     }
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, name, email, password);
       console.log("Account created successfully");
     } catch (err) {
       setError('Signup failed. Please try again.');
@@ -58,8 +60,19 @@ const Login = () => {
     setShow(!show);
   };
 
+  const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+      console.log("Google sign-in successful");
+    } catch (err) {
+      setError('Google sign-in failed. Please try again.');
+    }
+  };
 
-
+  // const handleForgotPasswordNavigation = () => {
+  //   navigate('/forgot-password');
+  // };
 
   return (
     <div className="wrapper">
@@ -69,9 +82,8 @@ const Login = () => {
           <span className="slider"></span>
           <span className="card-side"></span>
           <div className="flip-card__inner">
-            {/* Login Form */}
+          
             <div className={`flip-card__front ${action === '' ? 'active' : ''}`}>
-              <div className="title">Log in</div>
               <form className="flip-card__form" onSubmit={handleSignin}>
                 {error && <p className="error">{error}</p>}
                 <input
@@ -90,25 +102,27 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+
                 <label className="show-password" onClick={handleshow}>Show</label>
-                <button className="flip-card__btn" type="submit" >Let’s go!</button>
+                <button className="flip-card__btn" type="submit">Let&apos;s go!</button>
                 <div className="forgot">
-                  <a href="#" onClick={resetlink}>Forgot Password</a>
+                {/* onClick={handleForgotPasswordNavigation} */}
+                <Link to="/forgot-password">Forgot Password?</Link>
                 </div>
-                <div className="register">
-                  <p>Don’t have an account? <a href="#" onClick={register}>Sign UP</a></p>
-                </div>
+                <button type="button" className="flip-card__btn google-signin" onClick={handleGoogleSignIn}>
+                 Google Sign in
+                </button>
               </form>
             </div>
-            {/* Sign-Up Form */}
-            <div className={`flip-card__back ${action === 'active' ? 'active' : ''}`}>
-              <div className="title">Sign up</div>
+
+            <div className={`flip-card__back ${action === 'active' ? 'active' : ''}`}>     
               <form className="flip-card__form" onSubmit={handleSignup}>
                 {error && <p className="error">{error}</p>}
                 <input
                   className="flip-card__input"
                   placeholder="Name"
                   type="text"
+                  onChange={(e) => setName(e.target.value)}
                   required
                 />
                 <input
@@ -134,14 +148,10 @@ const Login = () => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                 />
-                <label className="show-password" onClick={handleshow}>Show</label>
                 <button className="flip-card__btn" type="submit">Confirm!</button>
-                <div className="register">
-                  <p>Already have an account? <Link to="/login" onClick={loginlink}>Log In</Link></p>
-                </div>
               </form>
             </div>
-            {/* Reset Password Form */}
+
             <div className={`flip-card__reset ${action === 'forgot' ? 'active' : ''}`}>
               <h2 className='h2'>Reset Password</h2>
               <form>
