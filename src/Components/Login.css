@@ -112,6 +112,7 @@
     z-index: -1;
     width: 300px;
     height: 350px;
+    top: 500%;
     position: relative;
     background-color: transparent;
     perspective: 1000px;
