@@ -131,7 +131,7 @@
   }
   
   .flip-card__front, .flip-card__back {
-    padding: 20px;
+    padding: 40px;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -195,6 +195,7 @@
   }
   
   .flip-card__btn {
+    display: block;
     margin: 20px 0 20px 0;
     width: 120px;
     height: 40px;
@@ -216,3 +217,11 @@
     color: var(--font-color);
     font-weight: 600;
   }
+
+  .error {
+    color: var(--main-color);
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+

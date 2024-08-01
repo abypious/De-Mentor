@@ -4,20 +4,24 @@ import './Login.css';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
-  const Login = () => {
-  const [action, setAction] = useState(''); 
+const Login = () => {
+  const [action, setAction] = useState('');
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState(''); 
-  const [error, setError] = useState(''); 
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSignin = async (e) => {
     e.preventDefault();
-    if (email.length < 3) {
-      setError('Email must be at least 3 characters long.');
+    if (!validateEmail(email)) {
+      setError('Invalid email format.');
+      return;
+    }
+    if (!validatePassword(password)) {
+      setError('Password must be alphanumeric and at least 6 characters long.');
       return;
     }
     try {
@@ -31,11 +35,15 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    if (email.length < 3) {
-      setError('Email must be at least 3 characters long.');
+    if (!validateEmail(email)) {
+      setError('Invalid email format.');
       return;
     }
-    if (password !== confirmPassword
+    if (!validatePassword(password)) {
+      setError('Password must be alphanumeric and at least 6 characters long.');
+      return;
+    }
+    if (password !== confirmPassword) {
       setError('Passwords do not match!');
       return;
     }
@@ -45,6 +53,18 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
     } catch (err) {
       setError('Signup failed. Please try again.');
     }
+  };
+
+  const validateEmail = (email) => {
+    // Simple regex for email validation
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
+
+  const validatePassword = (password) => {
+    // Regex for alphanumeric password of at least 6 characters
+    const re = /^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]{6,}$/;
+    return re.test(password);
   };
 
   const loginlink = (e) => {
@@ -86,6 +106,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
+                
                 <input
                   className="flip-card__input"
                   name="password"
@@ -94,11 +115,10 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-
+                <p>show password</p>
                 <button className="flip-card__btn" type="submit">Let's go!</button>
                 <div className="forgot">
-                <Link to="/forgot-password">Forgot Password?</Link>
-                
+                  <Link to="/forgot-password">Forgot Password?</Link>
                 </div>
                 <button type="button" className="flip-card__btn google-signin" onClick={handleGoogleSignIn}>
                   Google Sign in
