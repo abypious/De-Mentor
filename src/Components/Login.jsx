@@ -19,7 +19,7 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("Login successful");
-      navigate('/Navbarlogin');
+      navigate('/mainpage');
     } catch (err) {
       setError('Login failed. Please check your credentials.');
     }
