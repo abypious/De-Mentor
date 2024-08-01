@@ -5,12 +5,14 @@
     --bg-color: #fff;
     --bg-color-alt: #666;
     --main-color: #323232;
-      /* display: flex; */
-      /* flex-direction: column; */
-      /* align-items: center; */
+      display: flex; 
+      flex-direction: column; 
+      align-items: center;
   }
   /* switch card */
   .switch {
+    position: relative;
+    z-index: 10;
     transform: translateY(-200px);
     position: relative;
     display: flex;
@@ -21,21 +23,24 @@
     width: 50px;
     height: 20px;
   }
-  
+  .wrapper .title{
+    margin-top: 20px;
+  }
   .card-side::before {
     position: absolute;
-    content: 'Log in';
+    content: 'LOG IN';
     left: -70px;
     top: 0;
     width: 100px;
     text-decoration: underline;
-    color: var(--font-color);
+    color: #F86ECC;
+    /* color: var(--font-color); */
     font-weight: 600;
   }
   
   .card-side::after {
     position: absolute;
-    content: 'Sign up';
+    content: 'SIGN UP';
     left: 70px;
     top: 0;
     width: 100px;
@@ -45,13 +50,14 @@
   }
   
   .toggle {
-    opacity: 0;
+    opacity: 1;
     width: 0;
     height: 0;
   }
   
   .slider {
     box-sizing: border-box;
+    
     border-radius: 5px;
     border: 2px solid var(--main-color);
     box-shadow: 4px 4px var(--main-color);
@@ -81,24 +87,29 @@
   }
   
   .toggle:checked + .slider {
-    background-color: var(--input-focus);
+    background-color: var(--input-focus); 
+    
   }
   
   .toggle:checked + .slider:before {
     transform: translateX(30px);
+      
   }
   
   .toggle:checked ~ .card-side:before {
     text-decoration: none;
+    color: var(--font-color);
   }
   
   .toggle:checked ~ .card-side:after {
     text-decoration: underline;
+    color: #006100;
   }
   
   /* card */ 
   
   .flip-card__inner {
+    z-index: -1;
     width: 300px;
     height: 350px;
     position: relative;
@@ -140,6 +151,7 @@
   }
   
   .flip-card__form {
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,8 +181,8 @@
   }
   
   .flip-card__input::placeholder {
-    color: var(--font-color-sub);
-    opacity: 0.8;
+     color: var(--font-color-sub); 
+    opacity: 1;
   }
   
   .flip-card__input:focus {
@@ -195,3 +207,12 @@
     color: var(--font-color);
     cursor: pointer;
   } 
+  .flip-card__btn.google-signin{
+
+      width: 190px;
+  }
+
+  .forgot{
+    color: var(--font-color);
+    font-weight: 600;
+  }

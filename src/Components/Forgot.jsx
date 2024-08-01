@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Login.css';
+import './Forgot.css';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 
-const Login = () => {
+const Forgot = () => {
   const [action, setAction] = useState(''); 
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
@@ -72,93 +71,62 @@ const Login = () => {
   // };
 
   return (
-    <div className="wrapper">
+    <div className="div-wrapper">
       <div className="card-switch">
-        <label className="switch">
-          <input type="checkbox" className="toggle" />
-          <span className="slider"></span>
-          <span className="card-side"></span>
-          <div className="flip-card__inner">
-          
-            <div className={`flip-card__front ${action === '' ? 'active' : ''}`}>
+         <label className="switch"> 
+           <input type="checkbox" className="toggle" /> 
+           {/* <span className="slider"></span>
+           <span className="card-side"></span>
+           </label>className="flip-card__inner> */}
+           <div>
+            <div className={`card__front ${action === '' ? 'active' : ''}`}>
               <form className="flip-card__form" onSubmit={handleSignin}>
                 {error && <p className="error">{error}</p>}
+                <span className='card-heading'>Reset Password</span>
                 <input
-                  className="flip-card__input"
+                  className="card__input"
                   name="email"
                   placeholder="Email"
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                <input
+                {/* <input
                   className="flip-card__input"
                   name="password"
                   placeholder="Password"
                   type={show ? 'text' : 'password'}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                />
-                <button className="flip-card__btn" type="submit">Let&apos;s go!</button>
-                <div className="forgot">
+                /> */}
+                <button className="card__btn" type="submit">Get OTP</button>
+                {/* <div className="forgot"> */}
                 {/* onClick={handleForgotPasswordNavigation} */}
-                <Link to="/forgot-password">Forgot Password?</Link>
+                {/* <Link to="/forgot-password">Forgot Password?</Link>
                 </div>
                 <button type="button" className="flip-card__btn google-signin" onClick={handleGoogleSignIn}>
                  Google Sign in
-                </button>
-              </form>
+                </button>*/}
+              </form> 
+              <div className='otp-box'>
+                <form action="">
+                    <input type="number" />
+                    <input type="number" disabled/>
+                    <input type="number" disabled/>
+                    <input type="number" disabled/>
+                    <button className='card__btn' type="button">Confirm</button>
+                    
+                </form>
+                
+            </div>
             </div>
 
-            <div className={`flip-card__back ${action === 'active' ? 'active' : ''}`}>     
-              <form className="flip-card__form" onSubmit={handleSignup}>
-                {error && <p className="error">{error}</p>}
-                <input
-                  className="flip-card__input"
-                  placeholder="Name"
-                  type="text"
-                  required
-                />
-                <input
-                  className="flip-card__input"
-                  name="email"
-                  placeholder="Email"
-                  type="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <input
-                  className="flip-card__input"
-                  name="password"
-                  placeholder="Password"
-                  type={show ? 'text' : 'password'}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-                <input
-                  className="flip-card__input"
-                  placeholder="Confirm Password"
-                  type={show ? 'text' : 'password'}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
-                />
-                <button className="flip-card__btn" type="submit">Confirm!</button>
-              </form>
-            </div>
+            
 
-            <div className={`flip-card__reset ${action === 'forgot' ? 'active' : ''}`}>
-              <h2 className='h2'>Reset Password</h2>
-              <form>
-                <input
-                  className="flip-card__input"
-                  type="email"
-                  placeholder="Email"
-                  required
-                />
-                <button className="flip-card__btn" type="submit">Send OTP</button>
-                <p><Link to="/login" onClick={loginlink}>Go to Login Page</Link></p>
-              </form>
-            </div>
+
+           
+
+            
           </div>
         </label>
       </div>
@@ -166,4 +134,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Forgot;
