@@ -6,7 +6,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Login = () => {
+  const Login = () => {
   const [action, setAction] = useState(''); 
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
@@ -21,6 +21,10 @@ const Login = () => {
 
   const handleSignin = async (e) => {
     e.preventDefault();
+    if (email.length < 3) {
+      setError('Email must be at least 3 characters long.');
+      return;
+    }
     try {
       await signInWithEmailAndPassword(auth, email, password);
       toast.success("Login successful");
@@ -134,6 +138,7 @@ const Login = () => {
                 <button className="flip-card__btn" type="submit">Let&apos;s go!</button>
                 <div className="forgot">
                   <Link to="/forgot-password" onClick={() => setAction('forgot')}>Forgot Password?</Link>
+
                 </div>
                 <button type="button" className="flip-card__btn google-signin" onClick={handleGoogleSignIn}>
                   Google Sign in
