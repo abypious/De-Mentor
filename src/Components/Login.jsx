@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithNameEmailAndPassword } from 'firebase/auth';
@@ -12,13 +13,15 @@ const Login = () => {
   const [name, setName] = useState('');
   const [confirmPassword, setConfirmPassword] = useState(''); // State for confirm password
   const [error, setError] = useState(''); // State for error messages
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+
 
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
       await signInWithNameEmailAndPassword(auth, email, password);
       console.log("Login successful");
+      navigate('/Navbarlogin');
     } catch (err) {
       setError('Login failed. Please check your credentials.');
     }
@@ -99,6 +102,8 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+
+                <label className="show-password" onClick={handleshow}>Show</label>
                 <button className="flip-card__btn" type="submit">Let&apos;s go!</button>
                 <div className="forgot">
                 {/* onClick={handleForgotPasswordNavigation} */}

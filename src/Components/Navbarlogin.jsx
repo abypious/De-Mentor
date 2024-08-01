@@ -1,11 +1,10 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // Import Link
 import logo from "../assets/logo.png";
 import { navItems } from "../constants";
-import "./Navbar.css";
 
-const Navbar = () => {
+const Navbarlogin = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -29,15 +28,17 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-
-        
-          <div className="hidden lg:flex tooltip-container">
-            <Link to="/login">
-              <button className="text">Get Started</button>
-              <button>Login</button>
+          <div className="hidden lg:flex justify-center space-x-12 items-center">
+            <Link to="/login" className="py-2 px-6 border rounded-md transition-colors duration-300 ease-in-out hover:bg-pink-600 hover:scale-105">
+              Sign In
             </Link>
+            <a
+              href="#"
+              className="bg-gradient-to-r from-green-500 to-green-800 py-2 px-3 rounded-md ease-in-out hover:scale-105 "
+            >
+              Create an account
+            </a>
           </div>
-
           <div className="lg:hidden md:flex flex-col justify-end">
             <button onClick={toggleNavbar}>
               {mobileDrawerOpen ? <X /> : <Menu />}
@@ -53,13 +54,16 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-
-           
-            <div className="tooltip-container">
-              <Link to="/login">
-                <button className="text">Get Started</button>
-                <button>Login</button>
+            <div className="flex space-x-6">
+              <Link to="/login" className="py-2 px-3 border rounded-md transition-colors duration-300 ease-in-out hover:bg-pink-600 hover:scale-105">
+                Sign In
               </Link>
+              <a
+                href="#"
+                className="py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-orange-800 ease-in-out hover:scale-105"
+              >
+                Create an account
+              </a>
             </div>
           </div>
         )}
@@ -68,4 +72,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbarlogin;
