@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import './QuitSmoking.css'; // Import the CSS file
+import './Quit.css'; // Import the CSS file
 
-const QuitSmoking = () => {
+const QuitAlcohol = () => {
   // Define tasks for each week
   const alcoholTasks = {
     week1: [
@@ -111,4 +111,4 @@ const QuitSmoking = () => {
   );
 };
 
-export default QuitSmoking;
+export default QuitAlcohol;
