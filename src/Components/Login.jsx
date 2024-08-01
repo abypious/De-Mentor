@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword, signInWithNameEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 const Login = () => {
   const [action, setAction] = useState(''); 
@@ -19,7 +19,7 @@ const Login = () => {
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithNameEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
       console.log("Login successful");
       navigate('/mainpage');
     } catch (err) {

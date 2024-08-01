@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link
 import logo from "../assets/logo.png";
 import { navItems } from "../constants";
-// import "./Navbarlogin.css";
+import "./Navbarlogin.css";
 
 const Navbarlogin = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
