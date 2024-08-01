@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import './Quit.css'; // Import the CSS file
 
-const QuitPorn = () => {
+const QuitAlcohol = () => {
   // Define tasks for each week
-  const pornTasks = {
+  const alcoholTasks = {
     week1: [
       { day: 1, description: 'Commitment and Motivation' },
-      { day: 2, description: 'Assess Your Porn Habits' },
+      { day: 2, description: 'Assess Your Drinking Habits' },
       { day: 3, description: 'Identify Triggers' },
       { day: 4, description: 'Create a Plan' },
       { day: 5, description: 'Stay Busy' },
@@ -15,14 +15,14 @@ const QuitPorn = () => {
     week2: [
       { day: 1, description: 'Find Alternatives' },
       { day: 2, description: 'Set a Quit Date' },
-      { day: 3, description: 'Remove Access to Porn' },
+      { day: 3, description: 'Remove Alcohol from Your Home' },
       { day: 4, description: 'Inform Friends and Family' },
       { day: 5, description: 'Stay Active' },
     ],
     week3: [
       { day: 1, description: 'Avoid Triggers' },
       { day: 2, description: 'Practice Relaxation' },
-      { day: 3, description: 'Healthy Habits' },
+      { day: 3, description: 'Healthy Eating' },
       { day: 4, description: 'Stay Hydrated' },
       { day: 5, description: 'Track Your Progress' },
     ],
@@ -88,7 +88,7 @@ const QuitPorn = () => {
           <h2>{`Week ${week.slice(-1)}`}</h2>
           
           <ul>
-            {pornTasks [week].map((step, index) => (
+            {alcoholTasks[week].map((step, index) => (
               <li key={index}>
                 Day {step.day}: {step.description}
               </li>
@@ -111,4 +111,4 @@ const QuitPorn = () => {
   );
 };
 
-export default QuitPorn;
+export default QuitAlcohol;
