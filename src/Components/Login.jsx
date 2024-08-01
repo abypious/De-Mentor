@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
@@ -11,12 +12,14 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState(''); // State for confirm password
   const [error, setError] = useState(''); // State for error messages
+  const navigate = useNavigate();
 
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("Login successful");
+      navigate('/Navbarlogin');
     } catch (err) {
       setError('Login failed. Please check your credentials.');
     }
@@ -55,6 +58,9 @@ const Login = () => {
     setShow(!show);
   };
 
+
+
+
   return (
     <div className="wrapper">
       <div className="card-switch">
@@ -85,7 +91,7 @@ const Login = () => {
                   required
                 />
                 <label className="show-password" onClick={handleshow}>Show</label>
-                <button className="flip-card__btn" type="submit">Let’s go!</button>
+                <button className="flip-card__btn" type="submit" >Let’s go!</button>
                 <div className="forgot">
                   <a href="#" onClick={resetlink}>Forgot Password</a>
                 </div>
