@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword, signInWithNameEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
   const [action, setAction] = useState(''); 
@@ -15,11 +14,14 @@ const Login = () => {
   const [error, setError] = useState(''); // State for error messages
   const navigate = useNavigate();
 
-
   const handleSignin = async (e) => {
     e.preventDefault();
+    if (email.length < 3) {
+      setError('Email must be at least 3 characters long.');
+      return;
+    }
     try {
-      await signInWithNameEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
       console.log("Login successful");
       navigate('/Navbarlogin');
     } catch (err) {
@@ -29,35 +31,25 @@ const Login = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    if (email.length < 3) {
+      setError('Email must be at least 3 characters long.');
+      return;
+    }
     if (password !== confirmPassword) {
-      setError('Passwords do not match ! ! ');
+      setError('Passwords do not match.');
       return;
     }
     try {
-      await createUserWithEmailAndPassword(auth, name, email, password);
+      await createUserWithEmailAndPassword(auth, email, password);
       console.log("Account created successfully");
     } catch (err) {
       setError('Signup failed. Please try again.');
     }
   };
 
-  const register = (e) => {
-    e.preventDefault();
-    setAction('active');
-  };
-
   const loginlink = (e) => {
     e.preventDefault();
     setAction('');
-  };
-
-  const resetlink = (e) => {
-    e.preventDefault();
-    setAction('forgot');
-  };
-
-  const handleshow = () => {
-    setShow(!show);
   };
 
   const handleGoogleSignIn = async () => {
@@ -69,10 +61,6 @@ const Login = () => {
       setError('Google sign-in failed. Please try again.');
     }
   };
-
-  // const handleForgotPasswordNavigation = () => {
-  //   navigate('/forgot-password');
-  // };
 
   return (
     <div className="wrapper">
@@ -103,14 +91,12 @@ const Login = () => {
                   required
                 />
 
-                <label className="show-password" onClick={handleshow}>Show</label>
-                <button className="flip-card__btn" type="submit">Let&apos;s go!</button>
+                <button className="flip-card__btn" type="submit">Let's go!</button>
                 <div className="forgot">
-                {/* onClick={handleForgotPasswordNavigation} */}
-                <Link to="/forgot-password">Forgot Password?</Link>
+                  <Link to="/forgot-password">Forgot Password?</Link>
                 </div>
                 <button type="button" className="flip-card__btn google-signin" onClick={handleGoogleSignIn}>
-                 Google Sign in
+                  Google Sign in
                 </button>
               </form>
             </div>
