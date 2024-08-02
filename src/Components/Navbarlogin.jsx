@@ -19,7 +19,7 @@ const Navbarlogin = () => {
         <div className="insider-navbar">
           
           <img className="h-20 w-20 mr-2" src={logo} alt="Logo" />
-          <Link to="/" className="text-2xl tracking-tight">
+          <Link to="#" className="text-2xl tracking-tight">
             DeMentor
           </Link>
         </div>

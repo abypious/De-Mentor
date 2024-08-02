@@ -61,7 +61,7 @@
   max-width: 1536px; /* Adjust max-width as per your design system */
   padding-left: 1.5rem; /* 6 * 0.25rem */
   padding-right: 1.5rem; /* 6 * 0.25rem */
-  margin-left: -200px;
+  margin-left: -140px;
   margin-right: 2px;
   position: relative;
   margin-top: -100px;
@@ -81,7 +81,7 @@
 
 ul{
   font-size:17px ;
-  margin-right: 550px;
+  margin-right: 500px;
 }
 
 .tooltip-container {

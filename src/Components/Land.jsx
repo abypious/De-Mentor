@@ -54,8 +54,9 @@ const Land = () => {
         >
           <img src={drug} alt="Drug Addiction" />
           <div className="overlay">
-            Drug addiction is a chronic disease characterized by compulsive drug
-            seeking and use, despite harmful consequences.
+          Drug addiction is a persistent and debilitating chronic disease marked by an 
+          overwhelming and compulsive urge to seek out and use drugs.
+          
             <div>
               <p className="heading">Drug Addiction</p>
             </div>
@@ -99,8 +100,7 @@ const Land = () => {
         >
           <img src={smoke} alt="Smoke Addictions" />
           <div className="overlay">
-            Smoke addiction is a harmful dependency on nicotine, often leading
-            to serious health issues.
+          Smoke addiction, is a condition where an individual develops a compulsive reliance on nicotine, a stimulant found in tobacco products.
             {/* <button className="overlay-button">Proceed</button> */}
           </div>
           <p className="heading">Smoke Addictions</p>

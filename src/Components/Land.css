@@ -6,7 +6,7 @@
 
 }
 
-body {
+.body {
   background-color: #000;
 }
 
@@ -21,7 +21,7 @@ body {
   margin-bottom: 10px;
 }
 .overlay {
-  text-align: left;
+  text-align: center;
 }
 
 .addiction-container {
@@ -34,8 +34,8 @@ body {
 
 .addiction-card {
   position: relative;
-  width: 190px;
-  height: 300px; /* Increased height to accommodate text */
+  width: 210px;
+  height: 380px; /* Increased height to accommodate text */
   background-color: #000;
   display: flex;
   flex-direction: column;
@@ -52,7 +52,11 @@ body {
   height: 100px;
   object-fit: cover;
   filter: invert(10);
-  margin: auto; /* Center the image */
+  margin:  auto; /* Center the image */
+}
+
+.addiction-card p{
+  margin-top: 00px;
 }
 
 .addiction-card::before {
@@ -62,7 +66,7 @@ body {
   left: -5px;
   margin: auto;
   width: 200px;
-  height: 264px;
+  height: 364px;
   border-radius: 10px;
   background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
   z-index: -10;
@@ -90,6 +94,7 @@ body {
   font-size: 20px;
   text-transform: capitalize;
   font-weight: 700;
+  text-align: center;
 }
 
 .addiction-card p:last-child {

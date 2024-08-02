@@ -6,13 +6,12 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 const Login = () => {
   const [action, setAction] = useState('');
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false); // State to toggle password visibility
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState(''); 
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [resetEmail, setResetEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
@@ -22,26 +21,14 @@ const Login = () => {
 
   const handleSignin = async (e) => {
     e.preventDefault();
-
     if (email.length < 3) {
       toast.error('Email must be at least 3 characters long.');
       return;
     }
-
-    // if (!validateEmail(email)) {
-    //   toast.error('Invalid email format.');
-    //   return;
-    // }
-    // if (!validatePassword(password)) {
-    //   toast.error('Password must be alphanumeric and at least 6 characters long.');
-    //   return;
-    // }
     try {
       await signInWithEmailAndPassword(auth, email, password);
-
       toast.success("Login successful");
       navigate('/mainpage');
-
     } catch (err) {
       toast.error('Login failed. Please check your credentials.');
     }
@@ -59,7 +46,6 @@ const Login = () => {
       setTimeout(() => {
         window.location.reload(); 
       }, 2000);
-      
     } catch (err) {
       toast.error('Signup failed. Please try again.');
     }
@@ -73,7 +59,7 @@ const Login = () => {
       setTimeout(() => {
         setAction('');
         navigate('/login');
-      }, 2000);  // Wait for 2 seconds before navigating
+      }, 2000);
     } catch (err) {
       toast.error('Failed to send reset email. Please try again.');
     }
@@ -81,12 +67,10 @@ const Login = () => {
 
   const handleNewPasswordReset = async (e) => {
     e.preventDefault();
-
     if (newPassword !== confirmNewPassword) {
       toast.error('Passwords do not match!');
       return;
     }
-
     try {
       await confirmPasswordReset(auth, actionCode, newPassword);
       toast.success('Password reset successful');
@@ -131,7 +115,6 @@ const Login = () => {
           <span className="slider"></span>
           <span className="card-side"></span>
           <div className="flip-card__inner">
-          
             <div className={`flip-card__front ${action === '' ? 'active' : ''}`}>
               <form className="flip-card__form" onSubmit={handleSignin}>
                 <input
@@ -142,7 +125,6 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                
                 <input
                   className="flip-card__input"
                   name="password"
@@ -151,11 +133,10 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-                <label className="show-password" onClick={() => setShow(!show)}>Show Password</label>
+                <label className="show-password" onClick={() => setShow(!show)}>{show ? 'Hide Password' : 'Show Password'}</label>
                 <button className="flip-card__btn" type="submit">Let&apos;s go!</button>
                 <div className="forgot">
                   <Link to="/forgot-password" onClick={() => setAction('forgot')}>Forgot Password?</Link>
-
                 </div>
                 <button type="button" className="flip-card__btn google-signin" onClick={handleGoogleSignIn}>
                   Google Sign in
@@ -163,7 +144,7 @@ const Login = () => {
               </form>
             </div>
 
-            <div className={`flip-card__back ${action === 'active' ? 'active' : ''}`}>     
+            <div className={`flip-card__back ${action === 'active' ? 'active' : ''}`}>
               <form className="flip-card__form" onSubmit={handleSignup}>
                 <input
                   className="flip-card__input"
@@ -194,12 +175,12 @@ const Login = () => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                 />
-                <label className="show-password" onClick={() => setShow(!show)}>Show Password</label>
+                <label className="show-password" onClick={() => setShow(!show)}>{show ? 'Hide Password' : 'Show Password'}</label>
                 <button className="flip-card__btn" type="submit">Confirm!</button>
               </form>
             </div>
 
-           <div className={`flip-card__reset ${action === 'forgot' ? 'active' : ''}`}>
+            <div className={`flip-card__reset ${action === 'forgot' ? 'active' : ''}`}>
               <h2 className='h2'>Reset Password</h2>
               <form onSubmit={handleResetPassword}>
                 <input
@@ -231,11 +212,9 @@ const Login = () => {
                   onChange={(e) => setConfirmNewPassword(e.target.value)}
                   required
                 />
-                
                 <button className="flip-card__btn" type="submit">Reset Password</button>
               </form>
             </div>
-
           </div>
         </label>
       </div>
