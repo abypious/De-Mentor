@@ -1,46 +1,75 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Contact.css';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
-  const [action, setAction] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission
-    alert("Form submitted");
+    console.log("Form submitted");
+
+    // Send the form data using EmailJS
+    emailjs.sendForm('service_blfm97n', 'template_9j91iwl', event.target, 'OIrhWrHv0oSqtqiy6')
+      .then((result) => {
+        console.log("Success:", result.text);
+        toast.success("MESSAGE SEND SUCCESSFULLY !!");
+      }, (error) => {
+        console.log("Error:", error.text);
+        toast.error("There was an error submitting the form. Please try again.");
+      });
   };
 
   return (
-    <div>
-      <div className="contact-container">
-        <div className="contact-info">
-          <h2>Contact</h2>
-          <p><i className="fas fa-map-marker-alt"></i> Location: Meenangadi, Kerala, India</p>
-          <p><i className="fas fa-envelope"></i> Email: aby.pious.in@gmail.com</p>
-          <p><i className="fas fa-phone"></i> Call: +91 7356495708</p>
-          <p><i className="fas fa-home"></i> Address: Parakkudi, Choothupara, Manikave, 673596</p>
-          <p><i className="fas fa-comment"></i> Message: 7356495708</p>
-        </div>
-        <div className="contact-form">
-          <h2>Contact Us</h2>
-          <form action="https://formsubmit.co/dementor.help@gmail.com" method="POST" onSubmit={handleSubmit}>
-            <label htmlFor="name">Your Name</label>
-            <input type="text" id="name" name="name" required />
-
-            <label htmlFor="email">Your Email</label>
-            <input type="email" id="email" name="email" required />
-
-            <label htmlFor="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required />
-
-            <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-            <input type="hidden" name="_captcha" value="false" />
-
-            <button type="submit">Send Message</button>
-          </form>
+    <div className="background">
+      <div className="container">
+        <div className="screen">
+          <div className="screen-header">
+            <div className="screen-header-left">
+              <div className="screen-header-button close"></div>
+              <div className="screen-header-button maximize"></div>
+              <div className="screen-header-button minimize"></div>
+            </div>
+            <div className="screen-header-right">
+              <div className="screen-header-ellipsis"></div>
+              <div className="screen-header-ellipsis"></div>
+              <div className="screen-header-ellipsis"></div>
+            </div>
+          </div>
+          <div className="screen-body">
+            <div className="screen-body-item left">
+              <div className="app-title">
+                <span>CONTACT US</span>
+              </div>
+              <div className="app-contact">CONTACT INFO : DEMENTOR.HELP@GMAIL.COM</div>
+            </div>
+            <form onSubmit={handleSubmit}>
+              <div className="screen-body-item">
+                <div className="app-form">
+                  <div className="app-form-group">
+                    <input className="app-form-control" id="name" name="name" type='text' placeholder="NAME" required />
+                  </div>
+                  <div className="app-form-group">
+                    <input className="app-form-control" id="email" name="email" type='email' placeholder="EMAIL" required />
+                  </div>
+                  <div className="app-form-group">
+                    <input className="app-form-control" id="subject" name="subject" type='text' placeholder="SUBJECT" required />
+                  </div>
+                  <div className="app-form-group message">
+                    <input className="app-form-control" type='text' name="message" placeholder="MESSAGE" required />
+                  </div>
+                  <div className="app-form-group buttons">
+                    <button className="app-form-button" type='reset'>CANCEL</button>
+                    <button className="app-form-button" type='submit'>SEND</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
