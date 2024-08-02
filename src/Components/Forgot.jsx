@@ -15,12 +15,11 @@ const Forgot = () => {
     try {
       await sendPasswordResetEmail(auth, email);
       toast.success('Password reset email sent! Check your inbox.');
-      // Only navigate after successfully sending the email
       setTimeout(() => {
-        navigate('/login');  // Navigate to reset password page after successful email
-      }, 2000);  // Wait for 2 seconds before navigating
+        navigate('/login');  
+      }, 2000);  
     } catch (err) {
-      console.error('Error sending password reset email:', err); // Log the error to the console
+      console.error('Error sending password reset email:', err); 
       toast.error('Failed to send reset email. Please try again.');
     }
   };

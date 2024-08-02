@@ -22,7 +22,7 @@ import 'react-toastify/dist/ReactToastify.css';
   const handleSignin = async (e) => {
     e.preventDefault();
     if (email.length < 3) {
-      setError('Email must be at least 3 characters long.');
+      toast.error('Email must be at least 3 characters long.');
       return;
     }
     try {
