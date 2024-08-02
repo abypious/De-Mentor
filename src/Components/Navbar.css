@@ -1,3 +1,44 @@
+.navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding-top: 0;
+  padding-bottom: 0;
+  backdrop-filter: blur(20px); /* Equivalent to backdrop-blur-xl */
+  border-color: rgba(45, 45, 45, 0.8); /* Neutral color with 80% opacity */
+  border-width: 0px;
+  border-style: solid;
+  width: 100%;
+  margin-top: -100px;
+}
+
+.container-navbar {
+  width: 100%;
+  max-width: 1536px; /* Adjust max-width as per your design system */
+  padding-left: 1.5rem; /* 6 * 0.25rem */
+  padding-right: 1.5rem; /* 6 * 0.25rem */
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.insider-navber {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+
+@media (min-width: 1024px) { /* lg breakpoint */
+  .container-navbar {
+    font-size: 0.875rem; /* Small text */
+  }
+}
 
 
 .tooltip-container {
@@ -17,6 +58,7 @@
   display: grid;
   place-items: center;
   border: 2px solid var(--color);
+  margin-right: 100px;
 }
 
 .text {

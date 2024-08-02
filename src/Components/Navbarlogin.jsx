@@ -13,10 +13,11 @@ const Navbarlogin = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 py-3 backdrop-blur-xl border-neutral-700/80">
-    <div className="container px-4 mx-auto relative lg:text-sm">
-      <div className="flex justify-between items-center">
-        <div className="flex items-center flex-shrink-0">
+    <nav className="navbar">
+    <div className="container-navbar">
+      <div className="flex">
+        <div className="insider-navbar">
+          
           <img className="h-20 w-20 mr-2" src={logo} alt="Logo" />
           <Link to="/" className="text-2xl tracking-tight">
             DeMentor
@@ -47,11 +48,14 @@ const Navbarlogin = () => {
                 <Link to={item.href}>{item.label}</Link>
               </li>
             ))}
+            <li>
+              <div className="tooltip-container">
+              <div className="text">Logout</div>
+              <button>SeeYa!👋</button>
+              </div>
+            </li>
           </ul>
-          <div className="tooltip-container">
-            <div className="text">Get Started</div>
-            <button>Login</button>
-          </div>
+          
         </div>
       )}
     </div>
