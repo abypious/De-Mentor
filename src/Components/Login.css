@@ -112,7 +112,7 @@
     z-index: -1;
     width: 300px;
     height: 350px;
-    top: 500%;
+    top: 400%;
     position: relative;
     background-color: transparent;
     perspective: 1000px;
@@ -133,15 +133,16 @@
   
   .flip-card__front, .flip-card__back {
     padding: 40px;
-    position: absolute;
+    position:absolute;
     display: flex;
     flex-direction: column;
+    
     justify-content: center;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     background: lightgrey;
     gap: 20px;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 2px solid var(--main-color);
     box-shadow: 4px 4px var(--main-color);
   }

@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const Login = () => {
   const [action, setAction] = useState('');
   const [show, setShow] = useState(false);
@@ -21,18 +22,26 @@ const Login = () => {
 
   const handleSignin = async (e) => {
     e.preventDefault();
-    if (!validateEmail(email)) {
-      setError('Invalid email format.');
+
+    if (email.length < 3) {
+      toast.error('Email must be at least 3 characters long.');
       return;
     }
-    if (!validatePassword(password)) {
-      setError('Password must be alphanumeric and at least 6 characters long.');
-      return;
-    }
+
+    // if (!validateEmail(email)) {
+    //   toast.error('Invalid email format.');
+    //   return;
+    // }
+    // if (!validatePassword(password)) {
+    //   toast.error('Password must be alphanumeric and at least 6 characters long.');
+    //   return;
+    // }
     try {
       await signInWithEmailAndPassword(auth, email, password);
+
       toast.success("Login successful");
-      navigate('/Navbarlogin');
+      navigate('/mainpage');
+
     } catch (err) {
       toast.error('Login failed. Please check your credentials.');
     }
@@ -47,7 +56,10 @@ const Login = () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       toast.success("Account created successfully");
-      setAction('');
+      setTimeout(() => {
+        window.location.reload(); 
+      }, 2000);
+      
     } catch (err) {
       toast.error('Signup failed. Please try again.');
     }
