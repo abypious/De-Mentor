@@ -6,8 +6,9 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-  const Login = () => {
-  const [action, setAction] = useState(''); 
+
+const Login = () => {
+  const [action, setAction] = useState('');
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,14 +22,26 @@ import 'react-toastify/dist/ReactToastify.css';
 
   const handleSignin = async (e) => {
     e.preventDefault();
+
     if (email.length < 3) {
       toast.error('Email must be at least 3 characters long.');
       return;
     }
+
+    // if (!validateEmail(email)) {
+    //   toast.error('Invalid email format.');
+    //   return;
+    // }
+    // if (!validatePassword(password)) {
+    //   toast.error('Password must be alphanumeric and at least 6 characters long.');
+    //   return;
+    // }
     try {
       await signInWithEmailAndPassword(auth, email, password);
+
       toast.success("Login successful");
-      navigate('/Navbarlogin');
+      navigate('/mainpage');
+
     } catch (err) {
       toast.error('Login failed. Please check your credentials.');
     }
@@ -43,7 +56,10 @@ import 'react-toastify/dist/ReactToastify.css';
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       toast.success("Account created successfully");
-      setAction('');
+      setTimeout(() => {
+        window.location.reload(); 
+      }, 2000);
+      
     } catch (err) {
       toast.error('Signup failed. Please try again.');
     }
@@ -126,6 +142,7 @@ import 'react-toastify/dist/ReactToastify.css';
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
+                
                 <input
                   className="flip-card__input"
                   name="password"
