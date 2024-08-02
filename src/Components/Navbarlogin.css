@@ -159,3 +159,16 @@
     display: none; 
   }
 }
+
+@media (min-width: 768px) {
+  .navbar-login-container {
+    padding: 15px 30px;
+  }
+}
+
+/* Styles for desktop and larger devices */
+@media (min-width: 1024px) {
+  .navbar-login-container {
+    padding: 20px 40px;
+  }
+}
