@@ -139,7 +139,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-                <label className="show-password" onClick={() => setShow(!show)}>Show</label>
+                <label className="show-password" onClick={() => setShow(!show)}>Show Password</label>
                 <button className="flip-card__btn" type="submit">Let&apos;s go!</button>
                 <div className="forgot">
                   <Link to="/forgot-password" onClick={() => setAction('forgot')}>Forgot Password?</Link>
@@ -182,11 +182,12 @@ const Login = () => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                 />
+                <label className="show-password" onClick={() => setShow(!show)}>Show Password</label>
                 <button className="flip-card__btn" type="submit">Confirm!</button>
               </form>
             </div>
 
-            <div className={`flip-card__reset ${action === 'forgot' ? 'active' : ''}`}>
+           <div className={`flip-card__reset ${action === 'forgot' ? 'active' : ''}`}>
               <h2 className='h2'>Reset Password</h2>
               <form onSubmit={handleResetPassword}>
                 <input
@@ -199,7 +200,7 @@ const Login = () => {
                 <button className="flip-card__btn" type="submit">Send OTP</button>
                 <p><Link to="/login" onClick={() => setAction('')}>Go to Login Page</Link></p>
               </form>
-            </div>
+            </div> 
 
             <div className={`flip-card__new-password ${action === 'reset-password' ? 'active' : ''}`}>
               <h2 className='h2'>Set New Password</h2>
@@ -218,6 +219,7 @@ const Login = () => {
                   onChange={(e) => setConfirmNewPassword(e.target.value)}
                   required
                 />
+                
                 <button className="flip-card__btn" type="submit">Reset Password</button>
               </form>
             </div>

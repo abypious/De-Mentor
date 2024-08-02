@@ -10,6 +10,7 @@
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
+      margin-top: -150px;
   } 
  .card-heading{
     color: var(--main-color);
@@ -124,6 +125,7 @@
 
   
 .card__btn {
+  display: block;
     margin: 120px 0 20px 0;
     width: 150px;
     height: 40px;
@@ -187,4 +189,5 @@
     align-items: center;
     display: flex;
   }
+  
   

@@ -226,3 +226,9 @@
     font-weight: 700;
   }
 
+  label .show-password{
+    margin-left: 100px;
+    color:var(--font-color);
+    margin-top: -10px;
+  }
+
