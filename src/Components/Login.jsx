@@ -22,6 +22,12 @@ const Login = () => {
 
   const handleSignin = async (e) => {
     e.preventDefault();
+
+    if (email.length < 3) {
+      toast.error('Email must be at least 3 characters long.');
+      return;
+    }
+
     // if (!validateEmail(email)) {
     //   toast.error('Invalid email format.');
     //   return;
