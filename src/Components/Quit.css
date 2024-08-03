@@ -29,7 +29,7 @@ h2 {
   opacity: 1; /* Ensuring h2 is always visible */
 }
 
-button {
+.btn button {
   padding: 0.5rem 1rem;
   margin: 0.5rem;
   cursor: pointer;
