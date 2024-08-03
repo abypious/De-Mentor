@@ -1,47 +1,46 @@
 import React, { useState, useEffect } from 'react';
+import Footer from './Footer'; // Adjust the import path as needed
+import './Quit.css'; // Ensure this is the updated CSS file
 
-import './Quit.css'; // Import the CSS file
-
-const QuitAlcohol = () => {
-  // Define tasks for each week
-  const alcoholTasks = {
+const QuitDrug = () => {
+  // Define tasks for each week with detailed descriptions
+  const DrugTasks = {
     week1: [
-      { day: 1, description: 'Commitment and Motivation' },
-      { day: 2, description: 'Assess Your Drinking Habits' },
-      { day: 3, description: 'Identify Triggers' },
-      { day: 4, description: 'Create a Plan' },
-      { day: 5, description: 'Stay Busy' },
+      { day: 1, description: 'Acknowledge the Problem', details: 'Recognize the impact of drug use on your life and accept the need for change.' },
+      { day: 2, description: 'Seek Professional Help', details: 'Contact healthcare providers for guidance on treatment options and resources.' },
+      { day: 3, description: 'Understand Your Triggers', details: 'Identify situations, emotions, or people that prompt drug use.' },
+      { day: 4, description: 'Develop a Support Network', details: 'Reach out to friends, family, or support groups who can assist in your recovery journey.' },
+      { day: 5, description: 'Set Clear Goals', details: 'Define what you want to achieve, whether it\'s reducing use or quitting completely, and outline a plan.' },
     ],
     week2: [
-      { day: 1, description: 'Find Alternatives' },
-      { day: 2, description: 'Set a Quit Date' },
-      { day: 3, description: 'Remove Alcohol from Your Home' },
-      { day: 4, description: 'Inform Friends and Family' },
-      { day: 5, description: 'Stay Active' },
+      { day: 1, description: 'Create a Safe Environment', details: 'Remove drugs and paraphernalia from your home and places you frequent.' },
+      { day: 2, description: 'Explore Treatment Options', details: 'Consider therapy, medication, rehabilitation programs, or a combination.' },
+      { day: 3, description: 'Develop Healthy Routines', details: 'Establish regular schedules for meals, exercise, and sleep to support overall well-being.' },
+      { day: 4, description: 'Stay Connected with Support Groups', details: 'Regularly attend meetings or sessions, both online and offline, to stay engaged with recovery.' },
+      { day: 5, description: 'Practice Mindfulness', details: 'Use techniques like meditation or deep breathing to stay present and manage cravings.' },
     ],
     week3: [
-      { day: 1, description: 'Avoid Triggers' },
-      { day: 2, description: 'Practice Relaxation' },
-      { day: 3, description: 'Healthy Eating' },
-      { day: 4, description: 'Stay Hydrated' },
-      { day: 5, description: 'Track Your Progress' },
+      { day: 1, description: 'Learn Stress Management Techniques', details: 'Find healthy ways to cope with stress, such as yoga, journaling, or hobbies.' },
+      { day: 2, description: 'Engage in Physical Activity', details: 'Regular exercise can help reduce stress and improve mood.' },
+      { day: 3, description: 'Maintain a Balanced Diet', details: 'Eating nutritious meals supports physical health and can improve mental clarity.' },
+      { day: 4, description: 'Avoid High-Risk Situations', details: 'Stay away from places or people that could tempt you to use drugs.' },
+      { day: 5, description: 'Focus on Personal Growth', details: 'Pursue new interests, skills, or hobbies that enrich your life and keep you motivated.' },
     ],
     week4: [
-      { day: 1, description: 'Reward Yourself' },
-      { day: 2, description: 'Join a Support Group' },
-      { day: 3, description: 'Stay Positive' },
-      { day: 4, description: 'Manage Stress' },
-      { day: 5, description: 'Stay Committed' },
+      { day: 1, description: 'Celebrate Your Progress', details: 'Acknowledge and reward your achievements, no matter how small.' },
+      { day: 2, description: 'Continue Counseling or Therapy', details: 'Ongoing professional support can help maintain sobriety and address underlying issues.' },
+      { day: 3, description: 'Strengthen Coping Mechanisms', details: 'Build resilience by learning new strategies to handle cravings and stress.' },
+      { day: 4, description: 'Reconnect with Positive Influences', details: 'Spend time with people who encourage your recovery and well-being.' },
+      { day: 5, description: 'Stay Committed to Your Recovery', details: 'Reaffirm your commitment to a drug-free life and stay focused on your goals.' },
     ],
     week5: [
-      { day: 1, description: 'Reflect on Your Journey' },
-      { day: 2, description: 'Plan for the Future' },
-      { day: 3, description: 'Avoid Overconfidence' },
-      { day: 4, description: 'Continue Healthy Habits' },
-      { day: 5, description: 'Celebrate Milestones' },
+      { day: 1, description: 'Reflect on Challenges and Successes', details: 'Consider what has worked well and what challenges you\'ve faced.' },
+      { day: 2, description: 'Plan for Long-Term Recovery', details: 'Develop strategies to sustain your sobriety and continue personal growth.' },
+      { day: 3, description: 'Maintain a Healthy Lifestyle', details: 'Keep up with healthy eating, exercise, and sleep routines to support recovery.' },
+      { day: 4, description: 'Prepare for Potential Relapses', details: 'Understand that setbacks can happen and create a plan to handle them.' },
+      { day: 5, description: 'Build a Fulfilling Drug-Free Life', details: 'Focus on creating a life filled with purpose, joy, and healthy relationships.' },
     ],
   };
-  
 
   // Define state for current week
   const [currentWeek, setCurrentWeek] = useState('week1');
@@ -83,32 +82,31 @@ const QuitAlcohol = () => {
           key={week}
           className={`page ${currentWeek === week ? 'active' : ''}`}
         >
-          <h1>Quit Drinking</h1>
+          <h1>Quit Drugs</h1>
           
           <h2>{`Week ${week.slice(-1)}`}</h2>
           
           <ul>
-            {alcoholTasks[week].map((step, index) => (
+            {DrugTasks[week].map((step, index) => (
               <li key={index}>
-                Day {step.day}: {step.description}
+                <strong>Day {step.day}: {step.description}</strong>
+                <p>{step.details}</p>
               </li>
             ))}
-          </ul> <div style={{ padding: '20px' }}>
-        {currentWeek !== 'week1' && (
-          <button className='btn btn-primary' onClick={prevWeek}>Previous Week</button>
-        )}
-        {currentWeek !== 'week5' && (
-
-          <button className='btn btn-primary' onClick={nextWeek}>Next Week</button> 
-          
-        )}
-      </div>
+          </ul>
+          <div style={{ padding: '20px' }}>
+            {currentWeek !== 'week1' && (
+              <button className='btn btn-primary' onClick={prevWeek}>Previous Week</button>
+            )}
+            {currentWeek !== 'week5' && (
+              <button className='btn btn-primary' onClick={nextWeek}>Next Week</button>
+            )}
+          </div>
         </section>
       ))}
-
-     
+      <Footer />
     </div>
   );
 };
 
-export default QuitAlcohol;
+export default QuitDrug;
