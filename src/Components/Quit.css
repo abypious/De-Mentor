@@ -1,14 +1,15 @@
 * {
   box-sizing: border-box;
   margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
 }
 
-/* :root {
-  font-size: 14;
-} */
+:root {
+  --secondary-color: #151226; /* Initialize secondary color */
+  --contrast-color: #BF307F; /* Initialize contrast color */
+}
 
 body {
-  
   font: 1rem/1.6 sans-serif;
   width: 100%;
   min-height: 100vh;
@@ -17,40 +18,20 @@ body {
   justify-content: center;
   margin: 0; /* Reset margin to center the content */
   overflow: hidden;
+  background-color: var(--secondary-color); /* Set secondary color as background */
 }
 
 h1 {
-  margin: 10px; /* Ensure there's a proper unit */
+  margin: 20px 0; /* Add margin for spacing */
+  font-size: 2.5rem; /* Adjust font size if needed */
+  color: hsl(0, 0%, 100%); /* White color for heading */
 }
 
 h2 {
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem; /* Adjust font size if needed */
   opacity: 1; /* Ensuring h2 is always visible */
-}
-
-button {
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-}
-
-.btn-primary:active {
-  transform: scale(0.95);
+  margin: 10px 0; /* Add margin for spacing */
 }
 
 .page {
@@ -60,43 +41,86 @@ button {
   width: 100%;
   height: 100vh;
   display: flex;
-  align-items: center; /* Center content vertically */
-  justify-content: center; /* Center content horizontally */
-  transform: translate3d(100%, 0, 0);
-  opacity: 0;
-  transition: transform 0.5s ease-in, opacity 0.5s ease-in;
-  z-index: 10;
+  flex-direction: column; /* Arrange content vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: flex-start; /* Align content to the top */
+  padding: 20px; /* Add padding for spacing */
+  text-align: center; /* Center align text */
+  overflow-y: auto; /* Enable vertical scrolling */
+  background: transparent; /* Ensure no background color */
+  transition: transform 0.5s ease-in, opacity 0.5s ease-in; /* Transition for page change */
+  opacity: 0; /* Ensure content is invisible initially */
+  transform: translateX(100%); /* Slide content off-screen initially */
 }
 
 .page.active {
-  transform: translate3d(0, 0, 0);
-  opacity: 1;
-  z-index: 100;
+  transform: translateX(0); /* Slide content into view */
+  opacity: 1; /* Make content visible */
+}
+
+.page ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0; /* Add margin for spacing */
+  width: 100%;
+  max-width: 600px; /* Limit width for readability */
+}
+
+.page ul li {
+  color: rgb(255, 255, 255); /* White text color */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-align: left; /* Align text to the left */
+  background: transparent; /* Remove white background */
+  box-shadow: none; /* Remove box shadow */
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #007bff; /* Primary button color */
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.btn:active {
+  transform: scale(0.95);
 }
 
 [data-page="week1"] {
-  background-color: hsl(90, 70%, 20%);
-  color: hsl(90, 90%, 90%);
+  background-color: var(--secondary-color); /* Set background color to secondary color */
+  color: hsl(90, 27%, 88%); /* Adjust text color */
 }
 
 [data-page="week2"] {
-  background-color: hsl(270, 70%, 20%);
-  color: hsl(270, 90%, 90%);
+  background-color: var(--secondary-color); /* Set background color to secondary color */
+  color: hsl(270, 90%, 90%); /* Adjust text color */
 }
 
 [data-page="week3"] {
-  background-color: hsl(30, 70%, 20%);
-  color: hsl(30, 90%, 90%);
+  background-color: var(--secondary-color); /* Set background color to secondary color */
+  color: hsl(30, 90%, 90%); /* Adjust text color */
 }
 
 [data-page="week4"] {
-  background-color: hsl(150, 70%, 20%);
-  color: hsl(150, 90%, 90%);
+  background-color: var(--secondary-color); /* Set background color to secondary color */
+  color: hsl(150, 90%, 90%); /* Adjust text color */
 }
 
 [data-page="week5"] {
-  background-color: hsl(210, 70%, 20%);
-  color: hsl(210, 90%, 90%);
+  background-color: var(--secondary-color); /* Set background color to secondary color */
+  color: hsl(210, 90%, 90%); /* Adjust text color */
 }
 
 @keyframes animate {
@@ -118,7 +142,7 @@ button {
   }
   to {
     opacity: 1;
-    transform: translateY(-50%);
+    transform: translateY(0%);
   }
 }
 

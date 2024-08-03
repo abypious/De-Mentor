@@ -1,59 +1,22 @@
-/* .navbarlogin {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  padding-top: 0.75rem; 
-  padding-bottom: 0.75rem; 
-  backdrop-filter: blur(20px); 
-  border-bottom: 1px solid rgba(31, 41, 55, 0.5); 
-  width: 100%;
-
+/* General Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
-
-.navbarlogin-container {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem; 
-  padding-right: 1rem; 
-  position: relative;
-  font-size: 0.875rem; 
-}
-
-
-.navbarlogin-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
-.navbarlogin-logo-container {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.navbarlogin-logo {
-  height: 5rem; 
-  width: 5rem; 
-  margin-right: 0.5rem;
-} */
 
 .navbar {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 40;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0;
   backdrop-filter: blur(20px); /* Equivalent to backdrop-blur-xl */
   border-color: rgba(45, 45, 45, 0.8); /* Neutral color with 80% opacity */
-  border-width: 0px;
+  border-width: 0;
   border-style: solid;
   width: 100%;
-  margin-top: -100px;
+  margin-top: 0; /* Remove negative margin */
 }
 
 .container-navbar {
@@ -61,27 +24,25 @@
   max-width: 1536px; /* Adjust max-width as per your design system */
   padding-left: 1.5rem; /* 6 * 0.25rem */
   padding-right: 1.5rem; /* 6 * 0.25rem */
-  margin-left: -140px;
-  margin-right: 2px;
+  margin: 0 auto; /* Center align the container */
   position: relative;
-  margin-top: -100px;
 }
+
 .flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: -400px;
 }
+
 .insider-navber {
   display: flex;
   align-items: center;
-  flex-shrink: 0;
-  gap: 300px;
+  gap: 1.5rem; /* Adjust gap to your preference */
 }
 
-ul{
-  font-size:17px ;
-  margin-right: 500px;
+ul {
+  font-size: 1rem; /* Adjust font size if needed */
+  margin: 0; /* Reset margin */
 }
 
 .tooltip-container {
@@ -90,7 +51,7 @@ ul{
   position: relative;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  font-size: 16px;
+  font-size: 1rem; /* Adjust font size if needed */
   font-weight: 600;
   color: var(--color);
   padding: 0.7em 1.8em;
@@ -103,7 +64,7 @@ ul{
   border: 2px solid var(--color);
 }
 
-  .text {
+.text {
   position: absolute;
   top: 0;
   left: 0;
@@ -116,7 +77,7 @@ ul{
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-  .tooltip-container button:last-child {
+.tooltip-container button:last-child {
   position: absolute;
   top: 0;
   left: 100%;
@@ -134,7 +95,7 @@ ul{
   place-items: center;
 }
 
-  .tooltip {
+.tooltip {
   position: absolute;
   top: 0;
   left: 50%;
@@ -150,11 +111,11 @@ ul{
   transform-origin: 0 0;
   text-transform: capitalize;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem; /* Adjust font size if needed */
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
 }
 
-  .tooltip-container:hover .tooltip {
+.tooltip-container:hover .tooltip {
   top: -100%;
   opacity: 1;
   visibility: visible;
@@ -163,18 +124,18 @@ ul{
   animation: shake 0.5s ease-in-out both;
 }
 
-  .tooltip-container:hover {
+.tooltip-container:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   color: white;
   border-color: transparent;
 }
 
-  .tooltip-container:hover button:last-child {
+.tooltip-container:hover button:last-child {
   transform: scale(1);
   left: 0;
 }
 
-  .tooltip-container:hover .text {
+.tooltip-container:hover .text {
   opacity: 0;
   top: 0%;
   left: 100%;
@@ -188,26 +149,23 @@ ul{
   75% { transform: rotate(1deg); }
   100% { transform: rotate(0); }
 }
-  
 
 @media (max-width: 1024px) {
-    .tooltip-container {
+  .tooltip-container {
     display: block; 
   }
-}
-@media (max-width: 1024px) {
   .container-navbar {
-  margin-left: auto;
-}
-  .flex{
-    margin-right: auto;
+    margin: 0 auto; /* Center align on smaller screens */
+    padding-left: 1rem; /* Adjust padding */
+    padding-right: 1rem; /* Adjust padding */
+  }
+  .flex {
+    margin-right: 0; /* Reset margin */
   }
 }
 
-  
-
 @media (min-width: 1025px) {
-    .tooltip-container {
+  .tooltip-container {
     display: none; 
   }
 }
@@ -218,7 +176,6 @@ ul{
   }
 }
 
-/* Styles for desktop and larger devices */
 @media (min-width: 1024px) {
   .navbar-login-container {
     padding: 20px 40px;
