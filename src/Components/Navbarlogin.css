@@ -1,3 +1,46 @@
+/* .navbarlogin {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding-top: 0.75rem; 
+  padding-bottom: 0.75rem; 
+  backdrop-filter: blur(20px); 
+  border-bottom: 1px solid rgba(31, 41, 55, 0.5); 
+  width: 100%;
+
+}
+
+
+.navbarlogin-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem; 
+  padding-right: 1rem; 
+  position: relative;
+  font-size: 0.875rem; 
+}
+
+
+.navbarlogin-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.navbarlogin-logo-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.navbarlogin-logo {
+  height: 5rem; 
+  width: 5rem; 
+  margin-right: 0.5rem;
+} */
+
 .navbar {
   position: -webkit-sticky;
   position: sticky;
@@ -18,28 +61,28 @@
   max-width: 1536px; /* Adjust max-width as per your design system */
   padding-left: 1.5rem; /* 6 * 0.25rem */
   padding-right: 1.5rem; /* 6 * 0.25rem */
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: -140px;
+  margin-right: 2px;
   position: relative;
+  margin-top: -100px;
 }
 .flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-right: -400px;
 }
 .insider-navber {
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  gap: 300px;
 }
 
-
-@media (min-width: 1024px) { /* lg breakpoint */
-  .container-navbar {
-    font-size: 0.875rem; /* Small text */
-  }
+ul{
+  font-size:17px ;
+  margin-right: 500px;
 }
-
 
 .tooltip-container {
   --background: #333333;
@@ -58,10 +101,9 @@
   display: grid;
   place-items: center;
   border: 2px solid var(--color);
-  margin-right: 100px;
 }
 
-.text {
+  .text {
   position: absolute;
   top: 0;
   left: 0;
@@ -74,7 +116,7 @@
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.tooltip-container button:last-child {
+  .tooltip-container button:last-child {
   position: absolute;
   top: 0;
   left: 100%;
@@ -92,7 +134,7 @@
   place-items: center;
 }
 
-.tooltip {
+  .tooltip {
   position: absolute;
   top: 0;
   left: 50%;
@@ -112,7 +154,7 @@
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
 }
 
-.tooltip-container:hover .tooltip {
+  .tooltip-container:hover .tooltip {
   top: -100%;
   opacity: 1;
   visibility: visible;
@@ -121,18 +163,18 @@
   animation: shake 0.5s ease-in-out both;
 }
 
-.tooltip-container:hover {
+  .tooltip-container:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   color: white;
   border-color: transparent;
 }
 
-.tooltip-container:hover button:last-child {
+  .tooltip-container:hover button:last-child {
   transform: scale(1);
   left: 0;
 }
 
-.tooltip-container:hover .text {
+  .tooltip-container:hover .text {
   opacity: 0;
   top: 0%;
   left: 100%;
@@ -146,29 +188,39 @@
   75% { transform: rotate(1deg); }
   100% { transform: rotate(0); }
 }
-
+  
 
 @media (max-width: 1024px) {
-  .tooltip-container {
+    .tooltip-container {
     display: block; 
   }
 }
+@media (max-width: 1024px) {
+  .container-navbar {
+  margin-left: auto;
+}
+  .flex{
+    margin-right: auto;
+  }
+}
 
+  
 
 @media (min-width: 1025px) {
-  .tooltip-container {
+    .tooltip-container {
     display: none; 
   }
 }
+
 @media (min-width: 768px) {
-  .navbar-container {
+  .navbar-login-container {
     padding: 15px 30px;
   }
 }
 
 /* Styles for desktop and larger devices */
 @media (min-width: 1024px) {
-  .navbar-container {
+  .navbar-login-container {
     padding: 20px 40px;
   }
 }

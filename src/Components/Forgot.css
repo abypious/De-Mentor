@@ -10,6 +10,7 @@
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
+      margin-top: -150px;
   } 
  .card-heading{
     color: var(--main-color);
@@ -124,8 +125,9 @@
 
   
 .card__btn {
+  display: block;
     margin: 120px 0 20px 0;
-    width: 120px;
+    width: 150px;
     height: 40px;
     border-radius: 5px;
     border: 2px solid var(--main-color);
@@ -160,6 +162,7 @@
   .otp-box form {
     display: flex;
     gap: 10px;
+    margin-left: 10px;
   }
   
   .otp-box input[type="number"] {
@@ -171,7 +174,7 @@
     border-radius: 5px;
     outline: none;
     transition: border-color 0.3s;
-  }
+}
   
   .otp-box input[type="number"]:focus {
     border-color: #007bff;
@@ -182,4 +185,9 @@
     border-color: #ddd;
     cursor: not-allowed;
   }
+  form button{
+    align-items: center;
+    display: flex;
+  }
+  
   

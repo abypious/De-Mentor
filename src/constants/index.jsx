@@ -1,10 +1,11 @@
 
 
 export const navItems = [
-  { label: "Quit Smoking", href: "QuitSmoking" },
-  { label: "Quit Drinking", href: "Drink.Jsx" },
-  { label: "Quit Screen", href: "Porn.jsx" },
-  { label: "Quit Porn", href: "Porn.jsx" },
-  { label: "Contact Us", href: "Contact" },
+  { label: "Quit Drinking", href: "/qa" },
+  { label: "Quit Drug",href:"/qd"},
+  { label: "Quit Porn", href: "/qp" },
+  { label: "Quit Screen", href: "/qsc" },
+  { label: "Quit Smoking", href: "/qs" },
+  { label: "Contact Us", href: "/Contact" },
 ];
 
