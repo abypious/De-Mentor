@@ -100,6 +100,7 @@
 @-webkit-keyframes myfirst {
   0% {
     left: -25%;
+
   }
   100% {
     left: 100%;

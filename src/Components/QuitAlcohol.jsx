@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Footer from './Footer'; // Adjust the import path as needed
 import './csss/Quit.css'; // Ensure this is the updated CSS file
 
 const QuitAlcohol = () => {
+  const navigate = useNavigate(); // Use useNavigate for navigation
+
+
   // Define tasks for each week with detailed descriptions
   const AlcoholTasks = {
     week1: [
@@ -73,8 +78,12 @@ const QuitAlcohol = () => {
     }
   }, [animating]);
 
+  const finishHandler = () => {
+    navigate('/mainpage'); // Navigate to navbarlogin page
+  };
+
   return (
-    <div>
+    <div className="body">
       {['week1', 'week2', 'week3', 'week4', 'week5'].map((week) => (
         <section
           data-page={week}
@@ -83,7 +92,7 @@ const QuitAlcohol = () => {
         >
           <h1 className='h1'>Quit Alcohol</h1>
           
-          <h2>{`Week ${week.slice(-1)}`}</h2>
+          <h2 className='h2'>{`Week ${week.slice(-1)}`}</h2>
           
           <div className="content-box">
             <ul>
@@ -98,14 +107,15 @@ const QuitAlcohol = () => {
               {currentWeek !== 'week1' && (
                 <button className='btn btn-primary' onClick={prevWeek}>Previous Week</button>
               )}
-              {currentWeek !== 'week5' && (
+              {currentWeek !== 'week5' ? (
                 <button className='btn btn-primary' onClick={nextWeek}>Next Week</button>
+              ) : (
+                <button className='btn btn-primary' onClick={finishHandler}>Finished</button>
               )}
             </div>
           </div>
         </section>
       ))}
-      {/* <Footer /> */}
     </div>
   );
 };
