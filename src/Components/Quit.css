@@ -1,12 +1,22 @@
+/* Global styles */
 * {
   box-sizing: border-box;
-  margin: 0; /* Reset margin */
-  padding: 0; /* Reset padding */
+  margin: 0;
+  padding: 0;
 }
 
 :root {
-  --secondary-color: #151226; /* Initialize secondary color */
-  --contrast-color: #BF307F; /* Initialize contrast color */
+  --secondary-color: #151226;
+  --contrast-color: #BF307F;
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(240, 15%, 9%);
+  --paragraph: hsl(0, 0%, 83%);
+  --line: hsl(240, 9%, 17%);
+  --primary: hsl(189, 92%, 58%);
+  --box-background: #1a1a2e; /* Dark blue background */
+  --box-border: #3c3c4e; /* Lighter blue border */
+  --button-background: #1f8ef1; /* Button background */
+  --button-background-hover: #1f8ef1; /* Button hover background */
 }
 
 body {
@@ -16,22 +26,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0; /* Reset margin to center the content */
+  margin: 0;
   overflow: hidden;
-  background-color: var(--secondary-color); /* Set secondary color as background */
+  background-color: var(--secondary-color);
 }
 
 h1 {
-  margin: 20px 0; /* Add margin for spacing */
-  font-size: 2.5rem; /* Adjust font size if needed */
-  color: hsl(0, 0%, 100%); /* White color for heading */
-}
-
-h2 {
-  color: white;
-  font-size: 1.5rem; /* Adjust font size if needed */
-  opacity: 1; /* Ensuring h2 is always visible */
-  margin: 10px 0; /* Add margin for spacing */
+  margin: 20px 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--contrast-color);
 }
 
 .page {
@@ -41,118 +45,67 @@ h2 {
   width: 100%;
   height: 100vh;
   display: flex;
-  flex-direction: column; /* Arrange content vertically */
-  align-items: center; /* Center content horizontally */
-  justify-content: flex-start; /* Align content to the top */
-  padding: 20px; /* Add padding for spacing */
-  text-align: center; /* Center align text */
-  overflow-y: auto; /* Enable vertical scrolling */
-  background: transparent; /* Ensure no background color */
-  transition: transform 0.5s ease-in, opacity 0.5s ease-in; /* Transition for page change */
-  opacity: 0; /* Ensure content is invisible initially */
-  transform: translateX(100%); /* Slide content off-screen initially */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  text-align: center;
+  overflow-y: auto;
+  background: transparent;
+  transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+  opacity: 0;
+  transform: translateX(100%);
 }
 
 .page.active {
-  transform: translateX(0); /* Slide content into view */
-  opacity: 1; /* Make content visible */
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.content-box {
+  background-color: var(--box-background);
+  border: 2px solid var(--box-border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  color: var(--white);
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .page ul {
   list-style-type: none;
   padding: 0;
-  margin: 20px 0; /* Add margin for spacing */
+  margin: 20px 0;
   width: 100%;
-  max-width: 600px; /* Limit width for readability */
 }
 
 .page ul li {
-  color: rgb(255, 255, 255); /* White text color */
+  color: var(--white);
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 5px;
-  text-align: left; /* Align text to the left */
-  background: transparent; /* Remove white background */
-  box-shadow: none; /* Remove box shadow */
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.page ul li strong {
+  display: block;
+  margin-bottom: 5px;
 }
 
 .btn {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 10px;
-  background-color: #007bff; /* Primary button color */
-  color: white;
-  text-align: center;
+  background-color: var(--button-background);
   border: none;
+  color: var(--white);
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s, transform 0.3s;
+  margin: 10px;
 }
 
-.btn:hover {
-  background-color: #0056b3; /* Darker shade on hover */
-}
-
-.btn:active {
-  transform: scale(0.95);
-}
-
-[data-page="week1"] {
-  background-color: var(--secondary-color); /* Set background color to secondary color */
-  color: hsl(90, 27%, 88%); /* Adjust text color */
-}
-
-[data-page="week2"] {
-  background-color: var(--secondary-color); /* Set background color to secondary color */
-  color: hsl(270, 90%, 90%); /* Adjust text color */
-}
-
-[data-page="week3"] {
-  background-color: var(--secondary-color); /* Set background color to secondary color */
-  color: hsl(30, 90%, 90%); /* Adjust text color */
-}
-
-[data-page="week4"] {
-  background-color: var(--secondary-color); /* Set background color to secondary color */
-  color: hsl(150, 90%, 90%); /* Adjust text color */
-}
-
-[data-page="week5"] {
-  background-color: var(--secondary-color); /* Set background color to secondary color */
-  color: hsl(210, 90%, 90%); /* Adjust text color */
-}
-
-@keyframes animate {
-  0% {
-    transform: scale(0, 0.005);
-  }
-  50% {
-    transform: scaleY(0.005);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(50%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-
-@keyframes fadeInText {
-  from {
-    opacity: 0;
-    transform: translateY(50%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0%);
-  }
+.btn-primary:hover {
+  background-color: var(--button-background-hover);
+  opacity: 0.8;
 }
