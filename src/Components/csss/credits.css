@@ -1,8 +1,27 @@
 .team-container {
+  transform: translateY(5%) ;
+  margin-left: 500px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  display: flex;
+  flex-wrap: wrap;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px; 
-  padding: 20px; 
+  align-items: center;
+  grid-template-columns: repeat(3, 190px);
+  gap: 40px; 
+  padding: 10px; 
+}
+.team-heading {
+  transform: rotate(-90deg) translateY(200%) translateX(-113%);
+  transform-origin: center left;
+  position: absolute;
+  left: 0;
+  text-decoration: underline;
+  /* top: 50%; */
+  font-size: 6rem;
+  font-family: fantasy;
+  color: rgb(255, 255, 255);
 }
 
 .team-member {
@@ -10,15 +29,15 @@
   text-align: center;
   overflow: hidden;
   border-radius: 10px; 
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.1s ease-in-out;
   cursor: pointer;
   width: 180px; 
   height: 180px; 
 }
 
 .team-member:hover {
-  transform: scale(1.5); 
-  z-index: 1;
+  transform: scale(2); 
+  z-index: 6;
 }
 
 
@@ -35,12 +54,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .hover-photo {
   opacity: 0;
-  transition: opacity 0.1s ease-in-out;
+  transition: opacity 0s ease-in-out;
 }
 
 .image-container:hover .hover-photo {
@@ -65,15 +84,12 @@
 }
 
 .team-section {
-  text-align: center;
-  /* padding: 10px;  */
+ display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  /* position: relative; */
+  /* height: 100vh; */
 }
 
-.team-heading {
-  font-size: 36px; 
-  font-weight: bold; 
-  color: #ffffff; 
-  text-transform: uppercase; 
-  letter-spacing: 5px; 
-}
+
 

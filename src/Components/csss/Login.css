@@ -100,7 +100,7 @@
   
   .slider {
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 2px solid var(--main-color);
     box-shadow: 4px 4px var(--main-color);
     position: absolute;
@@ -120,7 +120,7 @@
     height: 20px;
     width: 20px;
     border: 2px solid var(--main-color);
-    border-radius: 5px;
+    border-radius: 15px;
     left: -2px;
     bottom: 2px;
     background-color: var(--bg-color);
@@ -144,7 +144,7 @@
   
   .toggle:checked ~ .card-side:after {
    
-    color: #1ddb1d;
+    color: #14d37d;
   }
 
   
@@ -210,7 +210,7 @@
   .flip-card__input {
     width: 250px;
     height: 40px;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 2px solid var(--main-color);
     background-color: var(--bg-color);
     box-shadow: 4px 4px var(--main-color);
@@ -240,7 +240,7 @@
     margin: 20px 0 20px 0;
     width: 120px;
     height: 40px;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 2px solid var(--main-color);
     background-color: var(--bg-color);
     box-shadow: 4px 4px var(--main-color);

@@ -10,6 +10,7 @@
   display: flex;
   justify-content: end;
   gap: 1rem;
+  margin-top: 20px;
 }
 
 .footer-button {
@@ -17,15 +18,21 @@
   font-weight: bold;
   font-size: medium;
   text-align: center;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-decoration: none;
-  background-color: #e81cff;
+  background-color: #2c282b;
   padding: 1.0rem 1rem;
-  border-radius: 5px;
+  border-radius: 15px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  margin-bottom: 20px;
 }
 
 .footer-button:hover {
-  background-color: #690572;
+  background-color: #14d37d ;
+  transform: scale(1.1);
 }
 
 .new_footer_top .footer_bg {
@@ -78,6 +85,12 @@
   line-height: 10px;
   color: #ffffff;
   padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  flex-direction: column; 
+  margin: 0;
+  
 }
 
 .new_footer_top .company_widget p {

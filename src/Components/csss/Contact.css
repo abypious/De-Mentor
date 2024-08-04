@@ -64,7 +64,7 @@
     width: 8px;
     height: 8px;
     margin-right: 3px;
-    border-radius: 8px;
+    border-radius: 15px;
     background: white;
   }
   
@@ -88,7 +88,7 @@
     width: 3px;
     height: 3px;
     margin-left: 2px;
-    border-radius: 8px;
+    border-radius: 15px;
     background: #999;
   }
   
@@ -182,7 +182,7 @@
   cursor: pointer;
   outline: none;
   padding: 5px 20px;
-  border-radius: 3px;
+  border-radius: 15px;
   transition: transform 0.3s ease-in, background-color 0.3s ease-in-out;
 }
   .app-form-button2 {
@@ -194,7 +194,7 @@
   cursor: pointer;
   outline: none;
   padding: 5px 20px;
-  border-radius: 3px;
+  border-radius: 15px;
   transition: transform 0.3s ease-in, background-color 0.3s ease-in-out;
 }
   

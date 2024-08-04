@@ -13,11 +13,15 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer_bottom">
-        <p className="mb-0 f_400">© De-Mentor, 2024 All rights reserved.</p>
-        <div className="footer-buttons wow fadeInLeft">
+      <div className="footer-buttons wow fadeInLeft">
                 <a href="/Credits" className="footer-button">Meet Our Team</a>
                 <a href="/contact" className="footer-button">Contact Us</a>
               </div>
+
+
+              <div className="footer_bottom"> 
+        <p className="mb-0 f_400">© De-Mentor, 2024 All rights reserved</p>
+        </div>
       </div>
     </footer>
   );
