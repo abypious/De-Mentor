@@ -61,7 +61,7 @@
   position: relative;
   background-color: rgba(255, 255, 255, 0.074); /* Semi-transparent background */
   border: 1px solid rgba(255, 255, 255, 0.222); /* Semi-transparent border */
-  border-radius: 0.7rem;
+  border-radius: 15px;
   padding: 30px;
   margin-top: 20px;
   color: var(--white);
@@ -79,7 +79,7 @@
 }
 
 .content-box::before {
-  border-radius: 50%;
+  border-radius: 15px;
   width: 6rem;
   height: 6rem;
   top: 30%;
@@ -118,7 +118,7 @@
   border: none;
   color: var(--white);
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   font-size: 1rem;
   margin: 10px;

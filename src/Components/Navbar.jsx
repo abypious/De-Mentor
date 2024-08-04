@@ -25,10 +25,10 @@ const Navbar = () => {
           </div>
           <ul className="hidden lg:flex ml-10 space-x-9"></ul>
 
-          <div className="hidden lg:flex tooltip-container">
+          <div className="hidden lg:flex tooltip-container" >
             <Link to="/login">
               <button className="text">Get Started</button>
-              <button>Login</button>
+              <button style={{ backgroundColor: "#14d37d" }}>Login</button>
             </Link>
           </div>
 
@@ -45,7 +45,7 @@ const Navbar = () => {
             <div className="tooltip-container">
               <Link to="/login">
                 <button className="text">Get Started</button>
-                <button>Login</button>
+                <button style={{ backgroundColor: "#14d37d" }}>Login</button>
               </Link>
             </div>
           </div>

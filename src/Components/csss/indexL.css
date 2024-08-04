@@ -1,0 +1,36 @@
+label {
+    font-size: 16px;
+    color: #e1e1e1;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition: color 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  label:focus,
+  label:hover {
+    color: #fff;
+  }
+  
+  label::after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition: width 400ms cubic-bezier(0.25, 0.8, 0.25, 1), left 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  label:focus::after,
+  label:hover::after {
+    width: 100%;
+    left: 0%;
+  }
+  
