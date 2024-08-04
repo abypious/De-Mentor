@@ -1,17 +1,27 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { navItems } from "../constants/indexL";
 import "../Components/csss/Navbarlogin.css";
+import { auth } from '../firebase';  
+import { signOut } from "firebase/auth";
 
 const Navbarlogin = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleNavbar = () => {
     setMobileDrawerOpen(!mobileDrawerOpen);
   };
-
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/");  
+    } catch (error) {
+      console.error("Error signing out: ", error);
+    }
+  };
   return (
     <nav className="navbarlog">
     <div className="container-navbar">
@@ -37,7 +47,7 @@ const Navbarlogin = () => {
         </ul>
         <div className="hidden lg:flex tooltip-container" >
           <div className="text">Logout</div>
-          <button style={{ backgroundColor: "#d751ad" }}>SeeYa👋</button>
+          <button style={{ backgroundColor: "#d751ad" }}onClick={handleLogout}>SeeYa👋</button>
         </div>
         <div className="lg:hidden md:flex flex-col justify-end">
           <button onClick={toggleNavbar}>
@@ -56,7 +66,7 @@ const Navbarlogin = () => {
             <li>
               <div className="tooltip-container">
               <div className="text">Logout</div>
-              <button style={{ backgroundColor: "#d751ad" }}>SeeYa👋</button>
+              <button style={{ backgroundColor: "#d751ad" }}onClick={handleLogout}>SeeYa👋</button>
               </div>
             </li>
           </ul>
