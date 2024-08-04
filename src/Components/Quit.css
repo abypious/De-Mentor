@@ -15,32 +15,46 @@
   --primary: hsl(189, 92%, 58%);
   --box-background: #1a1a2e; /* Dark blue background */
   --box-border: #3c3c4e; /* Lighter blue border */
-  --button-background: #1f8ef1; /* Button background */
-  --button-background-hover: #1f8ef1; /* Button hover background */
+  --button-background: #BF307F; /* Button background */
+  --button-background-hover: #b9317c; /* Button hover background */
 }
 
-
-
-h1 {
+/* body {
+  font: 1rem/1.6 sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start; 
+  justify-content: center;
+  margin: 0;
+ 
+  background-color: var(--secondary-color);
+} */
+.h1 {
   margin: 20px 0;
   font-size: 2.5rem;
   font-weight: bold;
   color: var(--contrast-color);
 }
 
+.h2 {
+  margin: 20px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
 .page {
-  position: fixed;
-  top: 0;
-  left: 0;
+ 
   width: 100%;
-  height: 100vh;
+  height: 200vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:center;
   justify-content: flex-start;
   padding: 20px;
   text-align: center;
-  /* overflow-y: auto; */
+  overflow-y: auto; /* Allow vertical scrolling */
   background: transparent;
   transition: transform 0.5s ease-in, opacity 0.5s ease-in;
   opacity: 0;
@@ -53,15 +67,41 @@ h1 {
 }
 
 .content-box {
-  background-color: var(--box-background);
-  border: 2px solid var(--box-border);
-  border-radius: 10px;
-  padding: 20px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.074); /* Semi-transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.222); /* Semi-transparent border */
+  border-radius: 0.7rem;
+  padding: 30px;
   margin-top: 20px;
   color: var(--white);
   width: 100%;
   max-width: 600px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  overflow: hidden;
+  backdrop-filter: blur(50px); /* Backdrop blur effect */
+  transition: all ease 0.3s; /* Smooth transition */
+}
+
+.content-box:hover {
+  box-shadow: 0px 0px 20px 1px rgba(255, 187, 118, 0.25); /* Enhanced shadow on hover */
+  border: 1px solid rgba(255, 255, 255, 0.454); /* Slightly more visible border on hover */
+}
+
+
+
+.content-box::before {
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  top: 30%;
+  right: 7%;
+}
+
+.content-box::after {
+  height: 3rem;
+  top: 8%;
+  right: 5%;
+  border: 1px solid;
 }
 
 .page ul {
