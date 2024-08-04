@@ -108,13 +108,19 @@ const Login = () => {
   }, [searchParams, navigate]);
 
   return (
+    
     <div className="wrapper">
+      
       <div className="card-switch">
+      <div className="flip-card-container">
         <label className="switch">
           <input type="checkbox" className="toggle" onChange={() => setAction(action === 'active' ? '' : 'active')} />
           <span className="slider"></span>
           <span className="card-side"></span>
+       
+        
           <div className="flip-card__inner">
+          
             <div className={`flip-card__front ${action === '' ? 'active' : ''}`}>
               <form className="flip-card__form" onSubmit={handleSignin}>
                 <input
@@ -195,28 +201,11 @@ const Login = () => {
               </form>
             </div> 
 
-            <div className={`flip-card__new-password ${action === 'reset-password' ? 'active' : ''}`}>
-              <h2 className='h2'>Set New Password</h2>
-              <form onSubmit={handleNewPasswordReset}>
-                <input
-                  className="flip-card__input"
-                  type="password"
-                  placeholder="New Password"
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  required
-                />
-                <input
-                  className="flip-card__input"
-                  type="password"
-                  placeholder="Confirm New Password"
-                  onChange={(e) => setConfirmNewPassword(e.target.value)}
-                  required
-                />
-                <button className="flip-card__btn" type="submit">Reset Password</button>
-              </form>
-            </div>
+        
           </div>
+          
         </label>
+        </div>
       </div>
       <ToastContainer />
     </div>

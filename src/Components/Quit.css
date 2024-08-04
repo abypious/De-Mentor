@@ -19,17 +19,7 @@
   --button-background-hover: #1f8ef1; /* Button hover background */
 }
 
-body {
-  font: 1rem/1.6 sans-serif;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  overflow: hidden;
-  background-color: var(--secondary-color);
-}
+
 
 h1 {
   margin: 20px 0;
@@ -50,7 +40,7 @@ h1 {
   justify-content: flex-start;
   padding: 20px;
   text-align: center;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   background: transparent;
   transition: transform 0.5s ease-in, opacity 0.5s ease-in;
   opacity: 0;

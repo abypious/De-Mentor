@@ -1,5 +1,4 @@
 .navbar {
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 40;
@@ -10,16 +9,15 @@
   border-width: 0px;
   border-style: solid;
   width: 100%;
-  margin-top: -100px;
 }
 
 .container-navbar {
   width: 100%;
-  max-width: 1536px; /* Adjust max-width as per your design system */
-  padding-left: 1.5rem; /* 6 * 0.25rem */
-  padding-right: 1.5rem; /* 6 * 0.25rem */
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 1536px;
+  padding-left: 1.5rem; 
+  padding-right: 1.5rem; 
+  justify-content: space-between;
+  align-items: center;
   position: relative;
 }
 .flex {
@@ -27,27 +25,26 @@
   justify-content: space-between;
   align-items: center;
 }
-.insider-navber {
-  display: flex;
-  align-items: center;
+.insider-navbar {
+  align-items: flex-start;
   flex-shrink: 0;
 }
 
 
-@media (min-width: 1024px) { /* lg breakpoint */
+@media (min-width: 1024px) { 
   .container-navbar {
-    font-size: 0.875rem; /* Small text */
+    font-size: 0.875rem; 
   }
 }
 
 
 .tooltip-container {
-  --background: #333333;
+  --background: #14d37d;
   --color: #e8e8e8;
   position: relative;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  font-size: 16px;
+  font-size: 1px;
   font-weight: 600;
   color: var(--color);
   padding: 0.7em 1.8em;
@@ -58,7 +55,8 @@
   display: grid;
   place-items: center;
   border: 2px solid var(--color);
-  margin-right: 100px;
+  margin-right: 0px;
+
 }
 
 .text {

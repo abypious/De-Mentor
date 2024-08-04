@@ -43,13 +43,12 @@ const Contact = () => {
               </div>
               <div>‎</div>
               <div className="app-title">
-              <img src={contactimg} alt="DEMENTOR.HELP@GMAIL.COM" />
+              <img src={contactimg} alt="dementor.help@gmail.com" />
               </div>
               <div>‎</div>
-              <div className="app-contact">CONTACT INFO : DEMENTOR.HELP@GMAIL.COM</div>
+              <div className="app-contact">CONTACT INFO : dementor.help@gmail.com</div>
             </div>
             <form onSubmit={handleSubmit}>
-              
   <div className="screen-body-item">
     <div className="app-form">
       <div className="app-form-group form-control">
@@ -72,7 +71,7 @@ const Contact = () => {
           className="app-form-control"
           id="email"
           name="email"
-          type="email"
+          type="text"
           required
         />
         <label>
