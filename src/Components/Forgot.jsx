@@ -5,6 +5,7 @@ import { sendPasswordResetEmail } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import icon from '../assets/logo.png';
 
 const Forgot = () => {
   const [email, setEmail] = useState('');
@@ -29,6 +30,7 @@ const Forgot = () => {
      
         <div className="card__front">
           <form className="flip-card__form" onSubmit={handlePasswordReset}>
+          <img src={icon} alt="de-mentor icon" className="project-icon" />
             <span className='card-heading'>Reset Password</span>
             <input
               className="card__input"

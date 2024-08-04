@@ -3,12 +3,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 100vh; 
-  width: 100vw;  */
-  position: relative; /* To contain the absolutely positioned flip card */
+  position: relative; 
 }
 
-/* Existing .flip-card styling */
 .flip-card__inner {
   z-index: -1;
   width: 300px;
@@ -66,7 +63,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
     width: 50px;
     height: 20px;
   }
@@ -150,14 +146,13 @@
    
     color: #1ddb1d;
   }
-  
 
   
   .flip-card__inner {
     z-index: -1;
     width: 300px;
     height: 350px;
-    top: 400%;
+    top: 250%;
     position: relative;
     background-color: transparent;
     perspective: 1000px;
@@ -197,7 +192,7 @@
   }
   
   .flip-card__form {
-    margin-top: 100px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -276,4 +271,39 @@
     color:var(--font-color);
     margin-top: -10px;
   }
+
+  .password-container {
+    position: relative;
+  }
+  
+  .flip-card__input {
+    width: 100%;
+    padding-right: 40px; 
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #333;
+  }
+
+  .project-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.project-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.project-name {
+  font-size: 24px;
+  font-weight: bold;
+  display: inline-block;
+}
 
