@@ -1,0 +1,26 @@
+.footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    bottom: 0;
+    font-family: 'Arial', sans-serif; /* Example font, change as needed */
+    font-size: 14px;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 2px;
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+ 

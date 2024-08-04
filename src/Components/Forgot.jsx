@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Forgot.css';
+import './csss/Forgot.css';
 import { auth } from '../firebase';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';

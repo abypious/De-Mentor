@@ -1,0 +1,100 @@
+.div-wrapper {
+ 
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --bg-color-alt: #666;
+  --main-color: #323232;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 100vh; /* Use full viewport height */
+}
+
+.card-heading {
+  color: var(--main-color);
+  margin-bottom: 40px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card__front {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: lightgrey;
+  gap: 20px;
+  border-radius: 15px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  max-width: 100%;
+  width: 300px;
+  height: 400px; /* Set a fixed width or adjust as needed */
+}
+
+.card__input {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-color);
+  padding: 5px 10px;
+  outline: none;
+}
+
+.card__btn {
+  display: block;
+  margin: 20px 0 20px 0;
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--font-color);
+  cursor: pointer;
+}
+
+.otp-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.otp-box form {
+  display: flex;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+.otp-box input[type="number"] {
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.otp-box input[type="number"]:focus {
+  border-color: #007bff;
+}
+
+.otp-box input[type="number"]:disabled {
+  background-color: #f0f0f0;
+  border-color: #ddd;
+  cursor: not-allowed;
+}

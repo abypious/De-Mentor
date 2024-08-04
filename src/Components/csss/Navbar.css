@@ -1,0 +1,172 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding-top: 0;
+  padding-bottom: 0;
+  backdrop-filter: blur(20px); /* Equivalent to backdrop-blur-xl */
+  border-color: rgba(45, 45, 45, 0.8); /* Neutral color with 80% opacity */
+  border-width: 0px;
+  border-style: solid;
+  width: 100%;
+}
+
+.container-navbar {
+  width: 100%;
+  max-width: 1536px;
+  padding-left: 1.5rem; 
+  padding-right: 1.5rem; 
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.insider-navbar {
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+
+@media (min-width: 1024px) { 
+  .container-navbar {
+    font-size: 0.875rem; 
+  }
+}
+
+
+.tooltip-container {
+  --background: #14d37d;
+  --color: #e8e8e8;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  font-size: 1px;
+  font-weight: 600;
+  color: var(--color);
+  padding: 0.7em 1.8em;
+  border-radius: 8px;
+  text-transform: uppercase;
+  height: 50px;
+  width: 120px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--color);
+  margin-right: 0px;
+
+}
+
+.text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  transform-origin: -100%;
+  transform: scale(1);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.tooltip-container button:last-child {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  opacity: 1;
+  background-color: var(--background);
+  z-index: 11;
+  border: 2px solid var(--background);
+  transform: scale(0);
+  transform-origin: 0;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: grid;
+  place-items: center;
+}
+
+.tooltip {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.3em 0.6em;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  background: var(--background);
+  z-index: 12;
+  border-radius: 8px;
+  scale: 0;
+  transform-origin: 0 0;
+  text-transform: capitalize;
+  font-weight: 400;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}
+
+.tooltip-container:hover .tooltip {
+  top: -100%;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  scale: 1;
+  animation: shake 0.5s ease-in-out both;
+}
+
+.tooltip-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  color: white;
+  border-color: transparent;
+}
+
+.tooltip-container:hover button:last-child {
+  transform: scale(1);
+  left: 0;
+}
+
+.tooltip-container:hover .text {
+  opacity: 0;
+  top: 0%;
+  left: 100%;
+  transform: scale(0);
+}
+
+@keyframes shake {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(7deg); }
+  50% { transform: rotate(-7deg); }
+  75% { transform: rotate(1deg); }
+  100% { transform: rotate(0); }
+}
+
+
+@media (max-width: 1024px) {
+  .tooltip-container {
+    display: block; 
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .tooltip-container {
+    display: none; 
+  }
+}
+@media (min-width: 768px) {
+  .navbar-container {
+    padding: 15px 30px;
+  }
+}
+
+/* Styles for desktop and larger devices */
+@media (min-width: 1024px) {
+  .navbar-container {
+    padding: 20px 40px;
+  }
+}

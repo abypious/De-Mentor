@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Footer from './Footer'; // Adjust the import path as needed
-import './Quit.css'; // Ensure this is the updated CSS file
+import './csss/Quit.css'; // Ensure this is the updated CSS file
 
 const QuitAlcohol = () => {
   const navigate = useNavigate(); // Use useNavigate for navigation

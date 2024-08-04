@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Quit.css'; // Import the CSS file
+import './csss/Quit.css'; // Import the CSS file
 
 const QuitSmoking = () => {
   // Define tasks for each week with detailed descriptions
