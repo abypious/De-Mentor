@@ -4,6 +4,7 @@ import './Contact.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import emailjs from 'emailjs-com';
+import contactimg from "../assets/contactus.png";
 
 const Contact = () => {
   const navigate = useNavigate(); // Initialize the navigation function
@@ -33,48 +34,108 @@ const Contact = () => {
       <div className="container">
         <div className="screen">
           <div className="screen-header">
-            <div className="screen-header-left">
-              <div className="screen-header-button close"></div>
-              <div className="screen-header-button maximize"></div>
-              <div className="screen-header-button minimize"></div>
-            </div>
-            <div className="screen-header-right">
-              <div className="screen-header-ellipsis"></div>
-              <div className="screen-header-ellipsis"></div>
-              <div className="screen-header-ellipsis"></div>
-            </div>
           </div>
+          
           <div className="screen-body">
             <div className="screen-body-item left">
               <div className="app-title">
                 <span>CONTACT US</span>
               </div>
+              <div>‎</div>
+              <div className="app-title">
+              <img src={contactimg} alt="DEMENTOR.HELP@GMAIL.COM" />
+              </div>
+              <div>‎</div>
               <div className="app-contact">CONTACT INFO : DEMENTOR.HELP@GMAIL.COM</div>
             </div>
             <form onSubmit={handleSubmit}>
-              <div className="screen-body-item">
-                <div className="app-form">
-                  <div className="app-form-group">
-                    <input className="app-form-control" id="name" name="name" type='text' placeholder="NAME" required />
-                  </div>
-                  <div className="app-form-group">
-                    <input className="app-form-control" id="email" name="email" type='email' placeholder="EMAIL" required />
-                  </div>
-                  <div className="app-form-group">
-                    <input className="app-form-control" id="subject" name="subject" type='text' placeholder="SUBJECT" required />
-                  </div>
-                  <div className="app-form-group message">
-                    <input className="app-form-control" type='text' name="message" placeholder="MESSAGE" required />
-                  </div>
-                  <div className="app-form-group buttons">
-                    <button className="app-form-button" type='reset'>CANCEL</button>
-                    <button className="app-form-button" type='submit'>SEND</button>
-                  </div>
-                </div>
-              </div>
-            </form>
+              
+  <div className="screen-body-item">
+    <div className="app-form">
+      <div className="app-form-group form-control">
+        <input
+          className="app-form-control"
+          id="name"
+          name="name"
+          type="text"
+          required
+        />
+        <label>
+          <span style={{ transitionDelay: '0ms' }}>N</span>
+          <span style={{ transitionDelay: '50ms' }}>A</span>
+          <span style={{ transitionDelay: '100ms' }}>M</span>
+          <span style={{ transitionDelay: '150ms' }}>E</span>
+        </label>
+      </div>
+      <div className="app-form-group form-control">
+        <input
+          className="app-form-control"
+          id="email"
+          name="email"
+          type="email"
+          required
+        />
+        <label>
+          <span style={{ transitionDelay: '0ms' }}>E</span>
+          <span style={{ transitionDelay: '50ms' }}>M</span>
+          <span style={{ transitionDelay: '100ms' }}>A</span>
+          <span style={{ transitionDelay: '150ms' }}>I</span>
+          <span style={{ transitionDelay: '200ms' }}>L</span>
+        </label>
+      </div>
+      <div className="app-form-group form-control">
+        <input
+          className="app-form-control"
+          id="subject"
+          name="subject"
+          type="text"
+          required
+        />
+        <label>
+          <span style={{ transitionDelay: '0ms' }}>S</span>
+          <span style={{ transitionDelay: '50ms' }}>U</span>
+          <span style={{ transitionDelay: '100ms' }}>B</span>
+          <span style={{ transitionDelay: '150ms' }}>J</span>
+          <span style={{ transitionDelay: '200ms' }}>E</span>
+          <span style={{ transitionDelay: '250ms' }}>C</span>
+          <span style={{ transitionDelay: '300ms' }}>T</span>
+        </label>
+      </div>
+      <div className="app-form-group form-control message">
+        <input
+          className="app-form-control"
+          type="text"
+          name="message"
+          required
+        />
+        <label>
+          <span style={{ transitionDelay: '0ms' }}>M</span>
+          <span style={{ transitionDelay: '50ms' }}>E</span>
+          <span style={{ transitionDelay: '100ms' }}>S</span>
+          <span style={{ transitionDelay: '150ms' }}>S</span>
+          <span style={{ transitionDelay: '200ms' }}>A</span>
+          <span style={{ transitionDelay: '250ms' }}>G</span>
+          <span style={{ transitionDelay: '300ms' }}>E</span>
+        </label>
+      </div>
+      <div className="app-form-group buttons-row">
+        <button className="app-form-button1" type="reset">
+          CANCEL
+        </button>
+        <button className="app-form-button2" type="submit">
+          SEND
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+          </div>
+          <div className="screen-footer">
+          
           </div>
         </div>
+        
       </div>
       <ToastContainer />
     </div>
