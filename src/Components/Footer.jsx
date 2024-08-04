@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import './Footer.css'; // Import the CSS file
+import './csss/Footer.css'; // Import the CSS file
 
 const Footer = () => {
   return (

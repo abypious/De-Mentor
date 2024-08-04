@@ -1,11 +1,10 @@
 import React, { useRef } from "react";
-// import "../Components/Land.css";
 import alcoho from "../assets/alocohol.png";
 import drug from "../assets/drug.png";
 import porn from "../assets/porn-hub.png";
 import screen from "../assets/screen.png";
 import smoke from "../assets/smoke.png";
-import './Land.css'
+import './csss/Land.css'
 
 const Land = () => {
   const containerRef = useRef(null);
