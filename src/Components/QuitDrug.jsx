@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './csss/Quit.css'; 
+import { useNavigate } from 'react-router-dom';
+import Footer from './Footer'; // Adjust the import path as needed
+import './csss/Quit.css'; // Ensure this is the updated CSS file
 
 const QuitDrug = () => {
+  const navigate = useNavigate(); // Use useNavigate for navigation
+
   // Define tasks for each week with detailed descriptions
   const DrugTasks = {
     week1: [
@@ -12,7 +16,7 @@ const QuitDrug = () => {
       { day: 5, description: 'Set Clear Goals', details: 'Define what you want to achieve, whether it\'s reducing use or quitting completely, and outline a plan.' },
     ],
     week2: [
-      { day: 1, description: 'Create a Safe Environment', details: 'Remove drugs and paraphernalia from your home and places you frequent.' },
+      { day: 1, description: 'Create a Safe Environment', details: 'Remove drugs and related items from your home and places you frequent.' },
       { day: 2, description: 'Explore Treatment Options', details: 'Consider therapy, medication, rehabilitation programs, or a combination.' },
       { day: 3, description: 'Develop Healthy Routines', details: 'Establish regular schedules for meals, exercise, and sleep to support overall well-being.' },
       { day: 4, description: 'Stay Connected with Support Groups', details: 'Regularly attend meetings or sessions, both online and offline, to stay engaged with recovery.' },
@@ -30,7 +34,7 @@ const QuitDrug = () => {
       { day: 2, description: 'Continue Counseling or Therapy', details: 'Ongoing professional support can help maintain sobriety and address underlying issues.' },
       { day: 3, description: 'Strengthen Coping Mechanisms', details: 'Build resilience by learning new strategies to handle cravings and stress.' },
       { day: 4, description: 'Reconnect with Positive Influences', details: 'Spend time with people who encourage your recovery and well-being.' },
-      { day: 5, description: 'Stay Committed to Your Recovery', details: 'Reaffirm your commitment to a drug-free life and stay focused on your goals.' },
+      { day: 5, description: 'Stay Committed to Your Recovery', details: 'Reaffirm your commitment to a sober life and stay focused on your goals.' },
     ],
     week5: [
       { day: 1, description: 'Reflect on Challenges and Successes', details: 'Consider what has worked well and what challenges you\'ve faced.' },
@@ -73,33 +77,41 @@ const QuitDrug = () => {
     }
   }, [animating]);
 
+  const finishHandler = () => {
+    navigate('/mainpage'); // Navigate to mainpage
+  };
+
   return (
-    <div>
+    <div className="body">
       {['week1', 'week2', 'week3', 'week4', 'week5'].map((week) => (
         <section
           data-page={week}
           key={week}
           className={`page ${currentWeek === week ? 'active' : ''}`}
         >
-          <h1>Quit Drugs</h1>
+          <h1 className='h1'>Quit Drug Addiction</h1>
           
-          <h2>{`Week ${week.slice(-1)}`}</h2>
+          <h2 className='h2'>{`Week ${week.slice(-1)}`}</h2>
           
-          <ul>
-            {DrugTasks[week].map((step, index) => (
-              <li key={index}>
-                <strong>Day {step.day}: {step.description}</strong>
-                <p>{step.details}</p>
-              </li>
-            ))}
-          </ul>
-          <div style={{ padding: '20px' }}>
-            {currentWeek !== 'week1' && (
-              <button className='btn btn-primary' onClick={prevWeek}>Previous Week</button>
-            )}
-            {currentWeek !== 'week5' && (
-              <button className='btn btn-primary' onClick={nextWeek}>Next Week</button>
-            )}
+          <div className="content-box">
+            <ul>
+              {DrugTasks[week].map((step, index) => (
+                <li key={index}>
+                  <strong>Day {step.day}: {step.description}</strong>
+                  <p>{step.details}</p>
+                </li>
+              ))}
+            </ul>
+            <div style={{ padding: '20px' }}>
+              {currentWeek !== 'week1' && (
+                <button className='btn btn-primary' onClick={prevWeek}>Previous Week</button>
+              )}
+              {currentWeek !== 'week5' ? (
+                <button className='btn btn-primary' onClick={nextWeek}>Next Week</button>
+              ) : (
+                <button className='btn btn-primary' onClick={finishHandler}>Finished</button>
+              )}
+            </div>
           </div>
         </section>
       ))}
