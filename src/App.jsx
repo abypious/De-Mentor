@@ -10,6 +10,8 @@ import Contact from "./Components/Contact";
 import Navbarlogin from "./Components/Navbarlogin";
 import Forgot from "./Components/Forgot";
 import Land from "./Components/Land";
+import Footer from "./Components/Footer";
+import Credits from './Components/Credits';
 
 
 const App = () => {
@@ -17,10 +19,10 @@ const App = () => {
     <Router>
       <Routes>
 
-        <Route path="/" element={<><Navbar /><Land /></>} />
+        <Route path="/" element={<><Navbar /><Land /><Footer /></>} />
         <Route path="/login" element={<><Login /></>} />
         <Route path="/Contact" element={<><Contact /></>} />
-        <Route path="/mainpage" element={<><Navbarlogin /><Land /></>} />
+        <Route path="/mainpage" element={<><Navbarlogin /><Land /><Footer /></>} />
         <Route path="/forgot-password" element={<><Forgot /></>} />
         <Route path="/qs" element={<><QuitSmoking /></>} />
         <Route path="/qd" element={<><QuitDrug /></>} />
@@ -28,6 +30,8 @@ const App = () => {
         <Route path="/qa" element={<><QuitAlcohol /></>} />
         <Route path="/qp" element={<><QuitPorn /></>} />
         <Route path="/Land" element={<><Land /></>} />
+        <Route path="/Credits" element={<><Credits /></>} />
+
 
       </Routes>
     </Router>
