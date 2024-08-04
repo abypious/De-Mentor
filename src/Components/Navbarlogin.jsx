@@ -13,15 +13,18 @@ const Navbarlogin = () => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbarlog">
     <div className="container-navbar">
       <div className="flex">
         <div className="insider-navbar">
           
-          <img className="h-20 w-20 mr-2" src={logo} alt="Logo" />
-          <Link to="#" className="text-2xl tracking-tight">
-            DeMentor
-          </Link>
+        <div className="flex items-center">
+  <img className="h-20 w-20 mr-2" src={logo} alt="Logo" />
+  <Link to="/" className="text-2xl tracking-tight">
+    De-Mentor
+  </Link>
+</div>
+
         </div>
         <ul className="hidden lg:flex ml-10 space-x-9">
           {navItems.map((item, index) => (

@@ -8,3 +8,18 @@
   font-family: "Poppins", sans-serif;
   color-scheme: dark;
 }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+body{
+  background-color: #0d0d0d; 
+  font-size: 12px; 
+  font: 1rem/1.6 sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}

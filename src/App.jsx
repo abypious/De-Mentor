@@ -14,10 +14,13 @@ import Footer from "./Components/Footer";
 import Credits from './Components/Credits';
 
 
+
+
 const App = () => {
   return (
     <Router>
       <Routes>
+
 
         <Route path="/" element={<><Navbar /><Land /><Footer /></>} />
         <Route path="/login" element={<><Login /></>} />

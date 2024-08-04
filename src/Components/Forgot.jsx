@@ -26,7 +26,7 @@ const Forgot = () => {
 
   return (
     <div className="div-wrapper">
-      <div className="card-switch">
+     
         <div className="card__front">
           <form className="flip-card__form" onSubmit={handlePasswordReset}>
             <span className='card-heading'>Reset Password</span>
@@ -41,7 +41,7 @@ const Forgot = () => {
             <button className="card__btn" type="submit">Send Link</button>
           </form>
         </div>
-      </div>
+      
       <ToastContainer />
     </div>
   );
