@@ -25,12 +25,12 @@ const App = () => {
 
 
         <Route path="/" element={<><Navbar /><Land /><Footer /></>} />
-        <Route path="/login" element={<><Login /></>} />
+        <Route path="/login" element={<Login />} />
         <Route path="/Contact" element={<><Contact /></>} />
         <Route path="/mainpage" element={<><Navbarlogin /><Land /><FooterL /></>} />
         <Route path="/forgot-password" element={<><Forgot /></>} />
-        <Route path="/qs" element={<><QuitSmoking /></>} />
-        <Route path="qd" element={<><QuitDrug /></>} />
+        <Route path="/qs" element={<QuitSmoking />} />
+        <Route path="/qd" element={<QuitDrug />} />
         <Route path="/qsc" element={<><QuitScreen /></>} />
         <Route path="/qa" element={<><QuitAlcohol /></>} />
         <Route path="/qp" element={<><QuitPorn /></>} />
