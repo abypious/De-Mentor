@@ -3,7 +3,7 @@ import QuitSmoking from './Components/QuitSmoking';
 import QuitPorn from './Components/QuitPorn';
 import QuitScreen from './Components/QuitScreen';
 import QuitDrug from './Components/QuitDrug';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Login from "./Components/Login";
 import Contact from "./Components/Contact";
