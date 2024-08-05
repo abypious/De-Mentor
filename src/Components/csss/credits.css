@@ -1,25 +1,23 @@
+/* Updated Responsive CSS */
+
 .team-container {
-  transform: translateY(5%) ;
-  margin-left: 500px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-right: 10px;
-  display: flex;
-  flex-wrap: wrap;
+  transform: translateY(5%);
+  margin: 5px 10px 5px 500px; /* Left margin for larger screens */
   display: grid;
+  flex-wrap: wrap;
   align-items: center;
   grid-template-columns: repeat(3, 190px);
-  gap: 40px; 
-  padding: 10px; 
+  gap: 40px;
+  padding: 10px;
 }
+
 .team-heading {
   transform: rotate(-90deg) translateY(200%) translateX(-113%);
   transform-origin: center left;
   position: absolute;
   left: 0;
   text-decoration: underline;
-  /* top: 50%; */
-  font-size: 6rem;
+  font-size: 5rem;
   font-family: fantasy;
   color: rgb(255, 255, 255);
 }
@@ -28,18 +26,17 @@
   position: relative;
   text-align: center;
   overflow: hidden;
-  border-radius: 10px; 
+  border-radius: 10px;
   transition: transform 0.1s ease-in-out;
   cursor: pointer;
-  width: 180px; 
-  height: 180px; 
+  width: 180px;
+  height: 180px;
 }
 
 .team-member:hover {
-  transform: scale(2); 
+  transform: scale(2);
   z-index: 6;
 }
-
 
 .image-container {
   position: relative;
@@ -71,9 +68,9 @@
 }
 
 .member-name {
-  margin-top: 10px; 
+  margin-top: 10px;
   font-weight: bold;
-  font-size: 18px; 
+  font-size: 18px;
   color: white;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -84,12 +81,62 @@
 }
 
 .team-section {
- display: flex;
+  display: flex;
   align-items: center;
-  /* justify-content: space-between; */
-  /* position: relative; */
-  /* height: 100vh; */
 }
 
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .team-container {
+    margin-left: 200px; /* Reduce left margin on smaller screens */
+  }
 
+  .team-heading {
+    font-size: 4rem; /* Adjust heading size */
+    transform: rotate(-90deg) translateY(200%) translateX(-100%);
+  }
+}
 
+@media (max-width: 768px) {
+  .team-container {
+    margin-left: 20px; /* Further reduce left margin */
+    grid-template-columns: repeat(2, 180px); /* Adjust grid layout */
+  }
+
+  .team-heading {
+    font-size: 3rem; /* Further adjust heading size */
+    transform: rotate(-90deg) translateY(150%) translateX(-90%);
+  }
+}
+
+@media (max-width: 480px) {
+  .team-container {
+    margin-left: 0; /* Center container */
+    display: flex; /* Switch to flexbox */
+    flex-direction: column;
+    align-items: center; /* Align all items to center */
+    grid-template-columns: none; /* Remove grid layout */
+  }
+
+  .team-heading {
+    font-size: 2rem; /* Smaller heading for mobile */
+    transform: none; /* Reset rotation */
+    position: relative; /* Position it normally */
+    left: auto; /* Reset left position */
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+    display: flex;
+    justify-content: center; /* Center align the heading */
+    width: 100%; /* Ensure it takes the full width */
+  }
+
+  .team-member {
+    width: 160px; /* Adjust size for mobile */
+    height: 160px;
+    margin-bottom: 20px; /* Add space between members */
+  }
+
+  .team-member:hover {
+    transform: scale(1.5); /* Reduce hover effect scale on small screens */
+  }
+}

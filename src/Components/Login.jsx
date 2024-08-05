@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import icon from '../assets/logo.png';
+import { history } from '../history';
 
 const Login = () => {
   const [action, setAction] = useState('');
@@ -24,6 +25,7 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       toast.success("Login successful");
+      history.replace('/mainpage');
       navigate('/mainpage');
     } catch (err) {
       toast.error('Login failed. Please check your credentials.');

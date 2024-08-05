@@ -1,4 +1,4 @@
-
+/* Global Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,14 +13,13 @@
   --paragraph: hsl(0, 0%, 83%);
   --line: hsl(240, 9%, 17%);
   --primary: hsl(189, 92%, 58%);
-  --box-background: #1a1a2e; /* Dark blue background */
-  --box-border: #3c3c4e; /* Lighter blue border */
-  --button-background: #BF307F; /* Button background */
-  --button-background-hover: #b9317c; /* Button hover background */
+  --box-background: #1a1a2e;
+  --box-border: #3c3c4e;
+  --button-background: #BF307F;
+  --button-background-hover: #b9317c;
 }
 
-
-
+/* Headings */
 .h1 {
   margin: 20px 0;
   font-size: 2.5rem;
@@ -35,6 +34,7 @@
   color: white;
 }
 
+/* Page Layout */
 .page {
   overflow-x: hidden;
   width: 100%;
@@ -57,42 +57,29 @@
   opacity: 1;
 }
 
+/* Content Box */
 .content-box {
   position: relative;
-  background-color: rgba(255, 255, 255, 0.074); /* Semi-transparent background */
-  border: 1px solid rgba(255, 255, 255, 0.222); /* Semi-transparent border */
+  background-color: rgba(255, 255, 255, 0.074);
+  border: 1px solid rgba(255, 255, 255, 0.222);
   border-radius: 15px;
   padding: 30px;
   margin-top: 20px;
   color: var(--white);
   width: 100%;
   max-width: 600px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  backdrop-filter: blur(50px); /* Backdrop blur effect */
-  transition: all ease 0.3s; /* Smooth transition */
+  backdrop-filter: blur(50px);
+  transition: all ease 0.3s;
 }
 
 .content-box:hover {
-  box-shadow: 0px 0px 20px 1px rgba(255, 187, 118, 0.25); /* Enhanced shadow on hover */
-  border: 1px solid rgba(255, 255, 255, 0.454); /* Slightly more visible border on hover */
+  box-shadow: 0px 0px 20px 1px rgba(255, 187, 118, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.454);
 }
 
-.content-box::before {
-  border-radius: 15px;
-  width: 6rem;
-  height: 6rem;
-  top: 30%;
-  right: 7%;
-}
-
-.content-box::after {
-  height: 3rem;
-  top: 8%;
-  right: 5%;
-  border: 1px solid;
-}
-
+/* Lists */
 .page ul {
   list-style-type: none;
   padding: 0;
@@ -113,6 +100,7 @@
   margin-bottom: 5px;
 }
 
+/* Buttons */
 .btn {
   background-color: var(--button-background);
   border: none;
@@ -127,4 +115,49 @@
 .btn-primary:hover {
   background-color: var(--button-background-hover);
   opacity: 0.8;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .h1 {
+    font-size: 2rem;
+  }
+
+  .h2 {
+    font-size: 1.25rem;
+  }
+
+  .content-box {
+    padding: 20px;
+    margin-top: 15px;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .h1 {
+    font-size: 1.5rem;
+  }
+
+  .h2 {
+    font-size: 1rem;
+  }
+
+  .content-box {
+    padding: 15px;
+    margin-top: 10px;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .page ul li {
+    font-size: 0.9rem;
+  }
 }

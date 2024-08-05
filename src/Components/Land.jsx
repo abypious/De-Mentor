@@ -99,7 +99,8 @@ const Land = () => {
         >
           <img src={smoke} alt="Smoke Addictions" />
           <div className="overlay">
-          Smoke addiction, is a condition where an individual develops a compulsive reliance on nicotine, a stimulant found in tobacco products.
+          Smoke addiction, is a condition where an individual develops a compulsive reliance on nicotine, a stimulant found in 
+          tobacco products.
             {/* <button className="overlay-button">Proceed</button> */}
           </div>
           <p className="heading">Smoke Addictions</p>
