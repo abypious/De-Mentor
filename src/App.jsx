@@ -30,7 +30,7 @@ const App = () => {
         <Route path="/mainpage" element={<><Navbarlogin /><Land /><FooterL /></>} />
         <Route path="/forgot-password" element={<><Forgot /></>} />
         <Route path="/qs" element={<><QuitSmoking /></>} />
-        <Route path="/qd" element={<><QuitDrug /></>} />
+        <Route path="qd" element={<><QuitDrug /></>} />
         <Route path="/qsc" element={<><QuitScreen /></>} />
         <Route path="/qa" element={<><QuitAlcohol /></>} />
         <Route path="/qp" element={<><QuitPorn /></>} />
