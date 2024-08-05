@@ -78,6 +78,7 @@ const QuitSmoking = () => {
   }, [animating]);
 
   const finishHandler = () => {
+    history.replace("/mainpage");
     navigate('/mainpage'); // Navigate to mainpage
   };
 

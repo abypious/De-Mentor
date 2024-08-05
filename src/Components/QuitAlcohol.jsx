@@ -79,6 +79,7 @@ const QuitAlcohol = () => {
   }, [animating]);
 
   const finishHandler = () => {
+    history.replace("/mainpage");
     navigate('/mainpage'); // Navigate to navbarlogin page
   };
 

@@ -59,7 +59,8 @@ const Login = () => {
     try {
       await signInWithPopup(auth, provider);
       toast.success("Google sign-in successful");
-      navigate("/Navbarlogin");
+      history.replace("/mainpage");
+      navigate("/mainpage");
     } catch (err) {
       toast.error("Google sign-in failed. Please try again.");
     }
@@ -187,11 +188,9 @@ const Login = () => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                   />
-                  <Link to="/login">
                     <button className="flip-card__btn" type="submit">
                       Confirm!
                     </button>
-                  </Link>
                 </form>
               </div>
             </div>
