@@ -6,6 +6,8 @@ import { navItems } from "../constants/indexL";
 import "../Components/csss/Navbarlogin.css";
 import { auth } from '../firebase';  
 import { signOut } from "firebase/auth";
+import { history } from '../history';
+
 
 
 const Navbarlogin = () => {
@@ -18,6 +20,7 @@ const Navbarlogin = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
+      history.replace('/');
       navigate("/");  
     } catch (error) {
       console.error("Error signing out: ", error);
