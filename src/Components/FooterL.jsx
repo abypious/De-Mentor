@@ -1,5 +1,7 @@
 import React from 'react';
 import './csss/Footer.css'; 
+import { Link } from "react-router-dom";
+
 
 const FooterL = () => {
   return (
@@ -15,8 +17,8 @@ const FooterL = () => {
       <div className="footer_bottom">
         <p className="mb-0 f_400">© De-Mentor, 2024 All rights reserved.</p>
         <div className="footer-buttons wow fadeInLeft">
-                <a href="/TeamL" className="footer-button">Meet Our Team</a>
-                <a href="/contact" className="footer-button">Contact Us</a>
+                <Link to="/TeamL" className="footer-button">Meet Our Team</Link>
+                <Link to="/contact" className="footer-button">Contact Us</Link>
               </div>
       </div>
     </footer>
