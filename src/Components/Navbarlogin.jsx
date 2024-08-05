@@ -6,9 +6,6 @@ import { navItems } from "../constants/indexL";
 import "../Components/csss/Navbarlogin.css";
 import { auth } from '../firebase';  
 import { signOut } from "firebase/auth";
-import { history } from '../history';
-
-
 
 const Navbarlogin = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -20,7 +17,6 @@ const Navbarlogin = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      // history.replace('/');
       navigate("/", { replace: true });  
     } catch (error) {
       console.error("Error signing out: ", error);

@@ -12,17 +12,11 @@ import Forgot from "./Components/Forgot";
 import Land from "./Components/Land";
 import Footer from "./Components/Footer";
 import Credits from './Components/Credits';
-import { history } from './history';
-
-
-
 
 const App = () => {
   return (
-    <Router history={history}>
+    <Router>
       <Routes>
-
-
         <Route path="/" element={<><Navbar /><Land /><Footer /></>} />
         <Route path="/login" element={<><Login /></>} />
         <Route path="/Contact" element={<><Contact /></>} />
@@ -35,7 +29,6 @@ const App = () => {
         <Route path="/qp" element={<><QuitPorn /></>} />
         <Route path="/Land" element={<><Land /></>} />
         <Route path="/Credits" element={<><Credits /></>} />
-
 
       </Routes>
     </Router>

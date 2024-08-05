@@ -30,8 +30,7 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       toast.success("Login successful");
-      // history.replace("/mainpage");
-      navigate("/mainpage", { replace: true });
+      navigate("/mainpage");
     } catch (err) {
       toast.error("Login failed. Please check your credentials.");
     }
@@ -59,8 +58,7 @@ const Login = () => {
     try {
       await signInWithPopup(auth, provider);
       toast.success("Google sign-in successful");
-      // history.replace("/mainpage");
-      navigate("/mainpage", { replace: true });
+      navigate("/mainpage");
     } catch (err) {
       toast.error("Google sign-in failed. Please try again.");
     }

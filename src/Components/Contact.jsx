@@ -22,7 +22,6 @@ const Contact = () => {
         
         // Redirect to home page after 2 seconds
         setTimeout(() => {
-          // history.replace("/mainpage");
           navigate('/mainpage', { replace: true }); // Redirect to home page
         }, 2000);
       }, (error) => {

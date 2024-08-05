@@ -77,7 +77,6 @@ const QuitPorn = () => {
   }, [animating]);
 
   const finishHandler = () => {
-    // history.replace("/mainpage");
     navigate('/mainpage', { replace: true }); // Navigate to mainpage
   };
 
