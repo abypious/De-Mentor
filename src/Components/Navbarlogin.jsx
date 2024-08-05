@@ -57,19 +57,28 @@ const Navbarlogin = () => {
       </div>
       {mobileDrawerOpen && (
         <div className="fixed right-0 z-20 bg-neutral-900 w-full p-12 flex flex-col justify-center items-center lg:hidden">
-          <ul>
-            {navItems.map((item, indexL) => (
-              <li key={indexL} className="py-4">
-                <Link to={item.href}>{item.label}</Link>
-              </li>
-            ))}
-            <li>
-              <div className="tooltip-container">
-              <div className="text">Logout</div>
-              <button style={{ backgroundColor: "#d751ad" }}onClick={handleLogout}>SeeYa👋</button>
-              </div>
-            </li>
-          </ul>
+          <ul className="flex flex-col items-center gap-2">
+  {navItems.map((item, indexL) => (
+    <li key={indexL} className="flex justify-center w-full">
+      <a href={item.href} className="flex justify-center w-full">
+        <label>{item.button}</label>
+      </a>
+    </li>
+  ))}
+  <li className="flex justify-center w-full mt-10">
+    <div className="tooltip-container flex flex-col items-center">
+      <div className="text mb-2">Logout</div>
+      <button
+        style={{ backgroundColor: "#d751ad" }}
+        onClick={handleLogout}
+        className="px-5 py-2"
+      >
+        SeeYa👋
+      </button>
+    </div>
+  </li>
+</ul>
+
           
         </div>
       )}
