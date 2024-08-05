@@ -187,7 +187,7 @@ const Login = () => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                   />
-                  <Link to="/mainpage">
+                  <Link to="/login">
                     <button className="flip-card__btn" type="submit">
                       Confirm!
                     </button>
