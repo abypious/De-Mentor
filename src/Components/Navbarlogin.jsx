@@ -7,6 +7,7 @@ import "../Components/csss/Navbarlogin.css";
 import { auth } from '../firebase';  
 import { signOut } from "firebase/auth";
 
+
 const Navbarlogin = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const navigate = useNavigate();
@@ -39,9 +40,9 @@ const Navbarlogin = () => {
         <ul className="hidden lg:flex ml-10 space-x-9">
           {navItems.map((item, indexL) => (
             <li key={indexL}>
-             <a href={item.href} >
+             <Link to={item.href} >
               <label>{item.button}</label>
-            </a>
+            </Link>
             </li>
           ))}
         </ul>
