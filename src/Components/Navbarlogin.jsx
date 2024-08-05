@@ -61,9 +61,9 @@ const Navbarlogin = () => {
           <ul className="flex flex-col items-center gap-2">
   {navItems.map((item, indexL) => (
     <li key={indexL} className="flex justify-center w-full">
-      <a href={item.href} className="flex justify-center w-full">
+      <Link to={item.href} className="flex justify-center w-full">
         <label>{item.button}</label>
-      </a>
+      </Link>
     </li>
   ))}
   <li className="flex justify-center w-full mt-10">
