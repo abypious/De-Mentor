@@ -11,7 +11,7 @@ import {
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import icon from "../assets/logo.png";
-import { history } from "../history";
+// import { history } from "../history";
 
 const Login = () => {
   const [action, setAction] = useState("");
@@ -30,8 +30,8 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       toast.success("Login successful");
-      history.replace("/mainpage");
-      navigate("/mainpage");
+      // history.replace("/mainpage");
+      navigate("/mainpage", { replace: true });
     } catch (err) {
       toast.error("Login failed. Please check your credentials.");
     }
@@ -59,8 +59,8 @@ const Login = () => {
     try {
       await signInWithPopup(auth, provider);
       toast.success("Google sign-in successful");
-      history.replace("/mainpage");
-      navigate("/mainpage");
+      // history.replace("/mainpage");
+      navigate("/mainpage", { replace: true });
     } catch (err) {
       toast.error("Google sign-in failed. Please try again.");
     }

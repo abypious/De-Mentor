@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Footer from './Footer'; // Adjust the import path as needed
 import './csss/Quit.css'; // Ensure this is the updated CSS file
 
 const QuitPorn = () => {
@@ -78,8 +77,8 @@ const QuitPorn = () => {
   }, [animating]);
 
   const finishHandler = () => {
-    history.replace("/mainpage");
-    navigate('/mainpage'); // Navigate to mainpage
+    // history.replace("/mainpage");
+    navigate('/mainpage', { replace: true }); // Navigate to mainpage
   };
 
   return (

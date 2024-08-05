@@ -20,8 +20,8 @@ const Navbarlogin = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      history.replace('/');
-      navigate("/");  
+      // history.replace('/');
+      navigate("/", { replace: true });  
     } catch (error) {
       console.error("Error signing out: ", error);
     }
