@@ -127,7 +127,6 @@ const Login = () => {
                       Forgot Password?
                     </Link>
                   </div>
-                  <Link to="/mainpage">
                     <button
                       type="button"
                       className="flip-card__btn google-signin"
@@ -135,7 +134,6 @@ const Login = () => {
                     >
                       Google Sign in
                     </button>
-                  </Link>
                 </form>
               </div>
 
