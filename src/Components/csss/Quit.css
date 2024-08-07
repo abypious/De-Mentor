@@ -7,7 +7,7 @@
 
 :root {
   --secondary-color: #151226;
-  --contrast-color: #BF307F;
+  --contrast-color: #d33089;
   --white: hsl(0, 0%, 100%);
   --black: hsl(240, 15%, 9%);
   --paragraph: hsl(0, 0%, 83%);
@@ -15,8 +15,8 @@
   --primary: hsl(189, 92%, 58%);
   --box-background: #1a1a2e;
   --box-border: #3c3c4e;
-  --button-background: #BF307F;
-  --button-background-hover: #b9317c;
+  --button-background: #d33089;
+  --button-background-hover: #d33089;
 }
 
 /* Headings */

@@ -9,11 +9,11 @@ const QuitAlcohol = () => {
   // Define tasks for each week with detailed descriptions
   const AlcoholTasks = {
     week1: [
-      { day: 1, description: 'Acknowledge the Problem', details: 'Recognize the impact of alcohol use on your life and accept the need for change.' },
-      { day: 2, description: 'Seek Professional Help', details: 'Contact healthcare providers for guidance on treatment options and resources.' },
+      { day: 1, description: 'Acknowledge the Problem', details: 'Recognize how alcohol affects your life and embrace the necessity for change.' },
+      { day: 2, description: 'Seek Professional Help', details: 'Reach out to healthcare providers for advice on treatment options and available resources.' },
       { day: 3, description: 'Understand Your Triggers', details: 'Identify situations, emotions, or people that prompt alcohol use.' },
       { day: 4, description: 'Develop a Support Network', details: 'Reach out to friends, family, or support groups who can assist in your recovery journey.' },
-      { day: 5, description: 'Set Clear Goals', details: 'Define what you want to achieve, whether it\'s reducing use or quitting completely, and outline a plan.' },
+      { day: 5, description: 'Set Clear Goals', details: 'Understand the impact of alcohol use on your life and accept the need for change.' },
     ],
     week2: [
       { day: 1, description: 'Create a Safe Environment', details: 'Remove alcohol and related items from your home and places you frequent.' },
