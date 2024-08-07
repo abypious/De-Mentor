@@ -3,7 +3,7 @@ import './csss/credits.css';
 import Box1 from '../assets/Team/Box1.png';
 import Box2 from '../assets/Team/Box2.png';
 import Box from '../assets/Team/Box.jpg';
-import Abishith from '../assets/Team/Abishith.jpg';
+import Abishith from '../assets/Team/Abishith.png';
 import Aby from '../assets/Team/Aby.jpg';
 import Aishwarya from '../assets/Team/Aishwarya.jpg';
 import Ashwin from '../assets/Team/Ashwin.jpg';
