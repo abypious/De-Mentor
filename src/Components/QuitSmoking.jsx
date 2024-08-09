@@ -9,7 +9,7 @@ const QuitSmoking = () => {
   const SmokingTasks = {
     week1: [
       { day: 1, description: 'Acknowledge the Problem', details: 'Recognize the impact of smoking on your life and accept the need for change.' },
-      { day: 2, description: 'Set a Quit Date', details: 'Choose a date within the next two weeks to quit smoking.' },
+      { day: 2, description: 'Set a Date for Quiting', details: 'Choose a date within the next two weeks to quit smoking.' },
       { day: 3, description: 'Understand Your Triggers', details: 'Identify situations, emotions, or people that prompt smoking.' },
       { day: 4, description: 'Develop a Support Network', details: 'Reach out to friends, family, or support groups who can assist in your quit journey.' },
       { day: 5, description: 'Set Clear Goals', details: 'Define what you want to achieve and outline a plan to quit smoking.' },
